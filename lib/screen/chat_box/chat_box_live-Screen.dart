@@ -148,9 +148,9 @@ class ChatBoxLiveScreenM extends StatelessWidget {
                         child: Container(
                           height: 35,
                           width: 35,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: ColorRes.logoColor,
-                            borderRadius: BorderRadius.all(
+                            borderRadius: const BorderRadius.all(
                               Radius.circular(8),
                             ),
                           ),
@@ -171,9 +171,9 @@ class ChatBoxLiveScreenM extends StatelessWidget {
                         child: Container(
                           height: 35,
                           width: 35,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: ColorRes.logoColor,
-                            borderRadius: BorderRadius.all(
+                            borderRadius: const BorderRadius.all(
                               Radius.circular(8),
                             ),
                           ),

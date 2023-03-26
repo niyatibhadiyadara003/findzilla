@@ -22,15 +22,17 @@ Widget lookingForYouBox(String icon, text, bool isSelect) {
           height: Get.height * 0.10,
           width: Get.height * 0.10,
           padding: const EdgeInsets.all(20),
-          decoration: const BoxDecoration(
-              shape: BoxShape.circle, color: ColorRes.logoColor),
+          decoration:
+              BoxDecoration(shape: BoxShape.circle, color: ColorRes.logoColor),
           child: SizedBox(
             height: 30,
             width: 30,
             child: Image.asset(icon),
           ),
         ),
-        const SizedBox(height: 10,),
+        const SizedBox(
+          height: 10,
+        ),
         Text(
           text,
           style: appTextStyle(color: ColorRes.black, fontSize: 12),

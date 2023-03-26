@@ -148,6 +148,7 @@ class SaveJobScreen extends StatelessWidget {
                                             child: Image.asset(
                                               AssetRes.bookMarkFillIcon,
                                               height: 20,
+                                              color: ColorRes.containerColor,
                                             ),
                                           ),
                                           const Spacer(),
@@ -235,7 +236,11 @@ Future bottom(context, fileds, image, docId) {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Image.asset(AssetRes.bookMarkFillIcon, height: 20),
+                      Image.asset(
+                        AssetRes.bookMarkFillIcon,
+                        height: 20,
+                        color: ColorRes.containerColor,
+                      ),
                       const Spacer(),
                       Text(
                         fileds['salary'],

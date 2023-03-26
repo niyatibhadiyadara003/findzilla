@@ -217,6 +217,7 @@ Widget allJobs(Stream stream, {bool? seeAll = false}) {
                                                         ? AssetRes.bookMarkFillIcon
                                                         : AssetRes.bookMarkBorderIcon,
                                                 height: 20,
+                                                color: ColorRes.containerColor,
                                               );
                                             }),
                                           ),

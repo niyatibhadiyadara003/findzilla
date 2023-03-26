@@ -174,7 +174,7 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                                               color: ColorRes.logoColor,
                                               borderRadius:
                                                   BorderRadius.circular(8)),
-                                          child: const GradientIcon(
+                                          child: GradientIcon(
                                             Icons.chat,
                                             20,
                                             LinearGradient(colors: [
@@ -205,7 +205,7 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                                             borderRadius:
                                                 BorderRadius.circular(8),
                                           ),
-                                          child: const GradientIcon(
+                                          child: GradientIcon(
                                             Icons.videocam_sharp,
                                             20,
                                             LinearGradient(colors: [
@@ -245,7 +245,7 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                                       height: 35,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),
-                                        gradient: const LinearGradient(colors: [
+                                        gradient: LinearGradient(colors: [
                                           ColorRes.logoColor,
                                           ColorRes.containerColor,
                                         ]),

@@ -24,7 +24,6 @@ Widget jobDetailsAppBar(JobDetailsUploadCvController controller) {
                   onTap: () {
                     Get.back();
                     controller.filepath.value = "";
-
                   },
                   child: Container(
                     height: 40,
@@ -57,6 +56,7 @@ Widget jobDetailsAppBar(JobDetailsUploadCvController controller) {
                       AssetRes.bookMarkBorderIcon,
                       height: 21,
                       width: 15,
+                      color: ColorRes.containerColor,
                     ),
                   ),
                 ),
@@ -80,6 +80,7 @@ Widget jobDetailsAppBar(JobDetailsUploadCvController controller) {
     ],
   );
 }
+
 Widget jobDetailsSuccessAppBar(BuildContext context) {
   return Column(
     children: [
@@ -94,9 +95,11 @@ Widget jobDetailsSuccessAppBar(BuildContext context) {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                      return DashBoardScreen();
-                    },));
+                    Navigator.pushReplacement(context, MaterialPageRoute(
+                      builder: (context) {
+                        return DashBoardScreen();
+                      },
+                    ));
                   },
                   child: Container(
                     height: 40,
@@ -129,6 +132,7 @@ Widget jobDetailsSuccessAppBar(BuildContext context) {
                       AssetRes.bookMarkBorderIcon,
                       height: 21,
                       width: 15,
+                      color: ColorRes.containerColor,
                     ),
                   ),
                 ),

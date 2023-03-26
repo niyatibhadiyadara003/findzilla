@@ -436,7 +436,7 @@ class SeeDetailsScreen extends StatelessWidget {
                           width: Get.width,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            gradient: const LinearGradient(
+                            gradient: LinearGradient(
                               colors: [
                                 ColorRes.logoColor,
                                 ColorRes.containerColor,

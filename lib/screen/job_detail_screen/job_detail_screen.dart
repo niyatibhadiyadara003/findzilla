@@ -93,6 +93,8 @@ class JobDetailScreen extends StatelessWidget {
                                                   AssetRes.bookMarkFillIcon,
                                                   height: 20,
                                                   width: 20,
+                                                  color:
+                                                      ColorRes.containerColor,
                                                 ),
                                               )
                                             : InkWell(
@@ -160,6 +162,8 @@ class JobDetailScreen extends StatelessWidget {
                                                 child: Image.asset(
                                                   AssetRes.bookMarkBorderIcon,
                                                   height: 20,
+                                                  color:
+                                                      ColorRes.containerColor,
                                                   width: 20,
                                                 ),
                                               ),

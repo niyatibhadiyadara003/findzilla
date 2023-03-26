@@ -486,7 +486,9 @@ class HomePageNewScreenU extends StatelessWidget {
                     children: [
                       const Spacer(),
                       const Image(
-                          image: AssetImage(AssetRes.bookMarkBorderIcon),
+                          image: AssetImage(
+                            AssetRes.bookMarkBorderIcon,
+                          ),
                           height: 20,
                           color: ColorRes.containerColor),
                       const SizedBox(height: 10),
@@ -558,7 +560,9 @@ class HomePageNewScreenU extends StatelessWidget {
                     children: [
                       const Spacer(),
                       const Image(
-                          image: AssetImage(AssetRes.bookMarkBorderIcon),
+                          image: AssetImage(
+                            AssetRes.bookMarkBorderIcon,
+                          ),
                           height: 20,
                           color: ColorRes.containerColor),
                       const SizedBox(height: 10),

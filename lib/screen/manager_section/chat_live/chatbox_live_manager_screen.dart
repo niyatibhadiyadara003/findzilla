@@ -32,7 +32,7 @@ class ChatBovLiveScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 85),
                 Text(
-                 Strings.chatBox,
+                  Strings.chatBox,
                   style: appTextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w500,
@@ -67,15 +67,15 @@ class ChatBovLiveScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                        Strings.airBNB,
+                          Strings.airBNB,
                           style: appTextStyle(
                               color: ColorRes.black,
                               fontSize: 15,
                               fontWeight: FontWeight.w500),
                         ),
                         const SizedBox(height: 6),
-                        Text(Strings.online,
-
+                        Text(
+                          Strings.online,
                           style: appTextStyle(
                               color: ColorRes.black,
                               fontSize: 9,
@@ -87,9 +87,9 @@ class ChatBovLiveScreen extends StatelessWidget {
                     Container(
                       height: 35,
                       width: 35,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: ColorRes.logoColor,
-                        borderRadius: BorderRadius.all(
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(8),
                         ),
                       ),
@@ -100,9 +100,9 @@ class ChatBovLiveScreen extends StatelessWidget {
                     Container(
                       height: 35,
                       width: 35,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: ColorRes.logoColor,
-                        borderRadius: BorderRadius.all(
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(8),
                         ),
                       ),
@@ -131,7 +131,7 @@ class ChatBovLiveScreen extends StatelessWidget {
                     '\nAfter we reviewed your application for the position'
                     '\nof UI/UX Designer,we congratulate you for being'
                     '\npart of us.After this you will be con'
-                        'tacted'
+                    'tacted'
                     '\npersonally by our team.Thank You ...'
                     '\nGreetings,'
                     '\n Hiring Manager',

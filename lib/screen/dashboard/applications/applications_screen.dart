@@ -46,8 +46,8 @@ class ApplicationsScreen extends StatelessWidget {
                     height: 40,
                     width: 40,
                     alignment: Alignment.center,
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(
+                    decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(10),
                         ),
                         color: ColorRes.logoColor),
@@ -88,12 +88,14 @@ class ApplicationsScreen extends StatelessWidget {
                         height: 40,
                         width: 40,
                         alignment: Alignment.center,
-                        decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(10)),
                             color: ColorRes.logoColor),
                         child: Image.asset(
                           AssetRes.bookMarkFillIcon,
                           height: 21,
+                          color: ColorRes.containerColor,
                           width: 15,
                         ),
                       ),

@@ -16,8 +16,8 @@ Widget homeAppBar() {
           height: 40,
           width: 40,
           alignment: Alignment.center,
-          decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
+          decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
               color: ColorRes.logoColor),
           child: const Text(
             Strings.logo,
@@ -66,8 +66,8 @@ Widget homeAppBar() {
               height: 40,
               width: 40,
               alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
                   color: ColorRes.logoColor),
               child: const Icon(
                 Icons.notifications,

@@ -179,8 +179,7 @@ class JobDetailsUploadCvScreen extends StatelessWidget {
                                         SizedBox(
                                           width: Get.width * 0.6,
                                           child: Text(
-                                            controller.filepath
-                                                .value ,
+                                            controller.filepath.value,
                                             style: appTextStyle(
                                                 fontSize: 13,
                                                 fontWeight: FontWeight.w600,
@@ -233,7 +232,10 @@ class JobDetailsUploadCvScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Image.asset(AssetRes.uploadIcon, height: 70),
+                              Image.asset(
+                                AssetRes.uploadIcon,
+                                height: 70,
+                              ),
                               const SizedBox(height: 20),
                               Text(
                                 "Upload Resume/CV",
