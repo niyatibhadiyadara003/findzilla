@@ -62,105 +62,61 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ImageProvider backgroundImage =
-        const AssetImage(AssetRes.splash_screenback);
+    ImageProvider backgroundImage = const AssetImage(AssetRes.splash_screenback);
     backgroundImage.resolve(createLocalImageConfiguration(context));
     ImageProvider backgroundImageBoy = const AssetImage(AssetRes.splashBoyImg);
     backgroundImageBoy.resolve(createLocalImageConfiguration(context));
     return Scaffold(
-      body: Container(
-        height: Get.height,
-        width: Get.width,
-        decoration: BoxDecoration(
-            image: DecorationImage(image: backgroundImage, fit: BoxFit.fill)),
+      body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              alignment: Alignment.centerRight,
-              padding: const EdgeInsets.only(top: 54, right: 30),
-              child: Text(
-                textAlign: TextAlign.end,
-                Strings.logo,
-                style: GoogleFonts.poppins(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w400,
-                    color: ColorRes.splashLogoColor),
+            const SizedBox(height: 30,),
+            Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: Align(
+                alignment: Alignment.topRight,
+                child: Image.asset(AssetRes.small_logo, height: 40,),
               ),
             ),
-            SizedBox(
-              height: 140,
-              child: Row(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 15),
-                    child: RichText(
-                      text: TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: ' Find Your  \n',
-                              style: GoogleFonts.poppins(
-                                color: ColorRes.black2,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 40,
-                                height: 1,
-                              )),
-                          TextSpan(
-                            text: ' dream job \n',
-                            style: GoogleFonts.poppins(
-                              fontSize: 40,
-                              fontWeight: FontWeight.w500,
-                              color: ColorRes.black2,
-                              background: Paint()..color = Colors.white,
-                              height: 1,
-                            ),
-                          ),
-                          TextSpan(
-                              text: ' here',
-                              style: GoogleFonts.poppins(
-                                  color: ColorRes.black2,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 40,
-                                  height: 1))
-                        ],
-                      ),
-                    ),
-                  ),
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Container(
-                      height: 140,
-                      alignment: Alignment.bottomRight,
-                      child: Container(
-                        margin: const EdgeInsets.only(right: 33),
-                        alignment: Alignment.center,
-                        height: 70,
-                        width: 70,
-                        decoration: BoxDecoration(
-                            border: Border.all(),
-                            shape: BoxShape.circle,
-                            color: ColorRes.black2),
-                        child: const Icon(
-                          Icons.search,
-                          color: Colors.white,
-                          size: 40,
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+           Align(
+             alignment: Alignment.topLeft,
+             child: Column(
+               crossAxisAlignment: CrossAxisAlignment.start,
+               children: [
+                 const Padding(
+                   padding: EdgeInsets.only(left: 20),
+                   child: Text("Find your", style: TextStyle(fontSize: 50, fontWeight: FontWeight.w500, color: ColorRes.color343740),),
+                 ),
+                 Stack(
+                   alignment: Alignment.centerLeft,
+                   children: [
+                     Container(
+                       height: 50,
+                       width: 230,
+                       color: ColorRes.colorFFF2DA,
+                     ),
+                     const Padding(
+                       padding: EdgeInsets.only(left: 20),
+                       child: Text("dream job", style: TextStyle(fontSize: 50, fontWeight: FontWeight.w500, color: ColorRes.color343740),),
+                     ),
+
+                   ],
+                 ),
+                 const Padding(
+                   padding: EdgeInsets.only(left: 20),
+                   child: Text("here", style: TextStyle(fontSize: 50, fontWeight: FontWeight.w500, color: ColorRes.color343740),),
+                 ),
+               ],
+             ),
+           ),
+            const Spacer(flex: 1,),
+            Image.asset(AssetRes.splashImage),
+            const Spacer(flex: 2),
+            const Align(
+              alignment: Alignment.center,
+              child: Text("Findzilla", style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500, color: ColorRes.containerColor),),
             ),
-            const Spacer(),
-            Image.asset(
-              AssetRes.splashBoyImg,
-              height: Get.height < 657 ? Get.height / 2 : Get.height / 1.6,
-              width: Get.width,
-              fit: BoxFit.cover,
-              filterQuality: FilterQuality.none,
-            )
+            const SizedBox(height: 30),
           ],
         ),
       ),

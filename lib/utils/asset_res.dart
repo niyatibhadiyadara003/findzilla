@@ -43,6 +43,8 @@ class AssetRes {
   ///-----------------------------images------------------------------------------------------
   static const splash_screenback = '${images}splash_screenback.png';
   static const fristBackScreen = '${images}fristBackScreen.png';
+  static const small_logo = '${images}small_logo.png';
+  static const splashImage = '${images}splashImage.png';
 
   ///-----------------------------images------------------------------------------------------
   static const splashScreen = '${images}splashScreenBack.png';

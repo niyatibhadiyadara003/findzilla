@@ -26,4 +26,9 @@ class ColorRes {
   static const darkGreen = Color(0xff23A757);
   static const iconColor = Color(0xffBE9DFF);
   static const blueColor = Color(0xff2972FE);
+
+  ///---------------------------------------
+  static const color343740 = Color(0xff343740);
+  static const colorFFF2DA = Color(0xffFFF2DA);
+
 }
