@@ -86,7 +86,8 @@ class NotificationScreenM extends StatelessWidget {
                               children: [
                                 Text(
                                   anscontro.selectedValue ??
-                                      NotificationService.noti["title"],
+                                      NotificationService.noti["title"] ??
+                                      '',
 
                                   // 'Your application to Apple Company has been read',
                                   style: appTextStyle(
