@@ -77,8 +77,6 @@ dependencies:
   internet_file: ^1.2.0
   flutter_pdfview: ^1.0.1
 
-  pdf_render:
-
   advanced_search: ^2.2.3
   firebase_messaging: ^11.4.4
   flutter_local_notifications: ^9.7.0
