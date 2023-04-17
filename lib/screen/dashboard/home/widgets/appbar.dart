@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:jobseek/service/pref_services.dart';
 import 'package:jobseek/utils/app_res.dart';
 import 'package:jobseek/utils/app_style.dart';
+import 'package:jobseek/utils/asset_res.dart';
 import 'package:jobseek/utils/color_res.dart';
 import 'package:jobseek/utils/pref_keys.dart';
 import 'package:jobseek/utils/string.dart';
@@ -11,6 +12,7 @@ Widget homeAppBar() {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 18),
     child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
           height: 40,
@@ -19,12 +21,9 @@ Widget homeAppBar() {
           decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(10)),
               color: ColorRes.logoColor),
-          child: const Text(
-            Strings.logo,
-            style: TextStyle(
-                color: ColorRes.containerColor,
-                fontSize: 10,
-                fontWeight: FontWeight.w600),
+          child: Image.asset(
+            AssetRes.small_logo,
+            scale: 6,
           ),
         ),
         Expanded(
@@ -60,7 +59,11 @@ Widget homeAppBar() {
             ),
           ),
         ),
-        InkWell(
+        const SizedBox(
+          height: 40,
+          width: 40,
+        ),
+        /* InkWell(
           onTap: () => Get.toNamed(AppRes.notificationScreen),
           child: Container(
               height: 40,
@@ -73,7 +76,7 @@ Widget homeAppBar() {
                 Icons.notifications,
                 color: ColorRes.containerColor,
               )),
-        ),
+        ),*/
       ],
     ),
   );

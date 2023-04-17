@@ -44,12 +44,9 @@ class FirstPageScreenM extends StatelessWidget {
                 ),
               ),
               SizedBox(height: Get.height * 0.12),
-              Text(
-                Strings.logo,
-                style: appTextStyle(
-                    fontSize: 44,
-                    fontWeight: FontWeight.w600,
-                    color: ColorRes.black),
+              Image.asset(
+                AssetRes.small_logo,
+                scale: 2,
               ),
               SizedBox(height: Get.height * 0.12),
               Padding(

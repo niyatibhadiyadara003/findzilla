@@ -56,12 +56,9 @@ class FirstScreen extends StatelessWidget {
               ),
               const SizedBox(height: 110),
               // Get.height * 0.12),
-              Text(
-                Strings.logo,
-                style: GoogleFonts.poppins(
-                  fontSize: 44,
-                  fontWeight: FontWeight.w600,
-                ),
+              Image.asset(
+                AssetRes.small_logo,
+                scale: 2,
               ),
               SizedBox(height: Get.height * 0.12),
               Padding(

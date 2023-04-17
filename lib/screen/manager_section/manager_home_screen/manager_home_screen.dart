@@ -8,6 +8,7 @@ import 'package:jobseek/screen/manager_section/manager_home_screen/manager_home_
 import 'package:jobseek/screen/manager_section/notification1/notification1_screen.dart';
 import 'package:jobseek/service/pref_services.dart';
 import 'package:jobseek/utils/app_style.dart';
+import 'package:jobseek/utils/asset_res.dart';
 import 'package:jobseek/utils/color_res.dart';
 import 'package:jobseek/utils/pref_keys.dart';
 import 'package:jobseek/utils/string.dart';
@@ -44,12 +45,9 @@ class ManagerHomeScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Center(
-                        child: Text(
-                          Strings.logo,
-                          style: appTextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w600,
-                              color: ColorRes.containerColor),
+                        child: Image.asset(
+                          AssetRes.small_logo,
+                          scale: 6,
                         ),
                       ),
                     ),

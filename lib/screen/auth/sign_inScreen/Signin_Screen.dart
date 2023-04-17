@@ -62,12 +62,9 @@ class _SigninScreenUState extends State<SigninScreenU> {
                               color: ColorRes.logoColor,
                               borderRadius: BorderRadius.circular(15),
                             ),
-                            child: Text(
-                              Strings.logo,
-                              style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                  color: ColorRes.containerColor),
+                            child: Image.asset(
+                              AssetRes.small_logo,
+                              scale: 3,
                             ),
                           ),
                         ),
