@@ -37,20 +37,12 @@ class DashBoardScreen extends StatelessWidget {
           id: "bottom_bar",
           builder: (controller) {
             return controller.currentTab == 0
-                ? token == ""
-                    ? HomePageNewScreenU()
-                    : HomeScreen()
+                ? HomeScreen()
                 : controller.currentTab == 1
-                    ? token == ""
-                        ? const AppliesLogoScreen()
-                        : ApplicationsScreen()
+                    ? ApplicationsScreen()
                     : controller.currentTab == 2
-                        ? token == ""
-                            ? const InboxLogoScreen()
-                            : ChatBoxUserScreen()
-                        : token == ""
-                            ? const ProfileLogoScreen()
-                            : ProfileUserScreenU();
+                        ? ChatBoxUserScreen()
+                        : ProfileUserScreenU();
           },
         ),
         bottomNavigationBar: GetBuilder<DashBoardController>(
