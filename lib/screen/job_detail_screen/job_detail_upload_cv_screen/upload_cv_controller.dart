@@ -11,54 +11,49 @@ import 'package:jobseek/utils/pref_keys.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 FirebaseFirestore firestore = FirebaseFirestore.instance;
-List<Map<String, dynamic>> companyList = [];
+List<String> companyList = [];
 bool abc = false;
 
 class JobDetailsUploadCvController extends GetxController {
   RefreshController refreshController = RefreshController();
 
-  /* init() async {
+   init() async {
     await firestore.collection("Apply").get().then((value) {
       value.docs.forEach((element) {
         if (element['uid'] == PrefService.getString(PrefKeys.userId)) {
-          companyList = element['companyName'];
+          for(int i =0; i<=element['companyName'].length; i++) {
+            companyList.add(element['companyName'][i]);
+          }
         }
       });
 
-      */
-  /*for (int i = 1; i <= value.docs.length; i++) {
-        if (value.docs[i]['uid'] == PrefService.getString(PrefKeys.userId)) {
-          companyList = value.docs[i]['companyName'];
-        }
-      }*/
-  /*
     });
     refreshController.refreshCompleted();
-  }*/
-  init() async {
+  }
+ /* init() async {
     await firestore.collection("Apply").get().then((value) {
       value.docs.forEach((element) {
         if (element['uid'] == PrefService.getString(PrefKeys.userId)) {
           companyList.add({
-            "companyname": element['CompanyName'],
-            "position": element['Position']
+            "companyname": element['companyName'],
+            "position": element['position']
           });
         }
       });
 
-      /*for (int i = 1; i <= value.docs.length; i++) {
+      for (int i = 1; i <= value.docs.length; i++) {
         if (value.docs[i]['uid'] == PrefService.getString(PrefKeys.userId)) {
           companyList = value.docs[i]['companyName'];
         }
-      }*/
+      }
     });
     refreshController.refreshCompleted();
   }
-
+*/
   String? pdfUrl;
   double filesize = 0;
 
-  /* onTapApply({var args}) {
+   onTapApply({var args}) {
     abc = false;
     for (int i = 0; i < companyList.length; i++) {
       if (companyList[i] == args['CompanyName']) {
@@ -103,8 +98,8 @@ class JobDetailsUploadCvController extends GetxController {
     ]);
 
     filepath.value = "";
-  }*/
-  onTapApply({var args}) {
+  }
+  /*onTapApply({var args}) {
     abc = false;
     for (int i = 0; i < companyList.length; i++) {
       if (companyList[i]['companyame'] == args['CompanyName'] &&
@@ -155,7 +150,7 @@ class JobDetailsUploadCvController extends GetxController {
     ]);
 
     filepath.value = "";
-  }
+  }*/
 
   RxString filepath = "".obs;
   RxInt? fileSize;
