@@ -48,18 +48,14 @@ class ChatBoxScreen extends StatelessWidget {
                   child: Container(
                     height: 40,
                     width: 40,
+                    alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: ColorRes.logoColor,
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Center(
-                      child: Text(
-                        Strings.logo,
-                        style: appTextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 10,
-                            color: ColorRes.containerColor),
-                      ),
+                    child: Image.asset(
+                      AssetRes.small_logo,
+                      scale: 6,
                     ),
                   ),
                 ),

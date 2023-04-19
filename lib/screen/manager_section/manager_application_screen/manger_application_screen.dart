@@ -47,12 +47,9 @@ class ManagerApplicationScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Center(
-                        child: Text(
-                          Strings.logo,
-                          style: appTextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 10,
-                              color: ColorRes.containerColor),
+                        child: Image.asset(
+                          AssetRes.small_logo,
+                          scale: 6,
                         ),
                       ),
                     ),

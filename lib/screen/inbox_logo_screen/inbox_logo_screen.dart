@@ -30,13 +30,9 @@ class InboxLogoScreen extends StatelessWidget {
                   color: ColorRes.logoColor,
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Text(
-                  Strings.logo,
-                  style: appTextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 10,
-                    color: ColorRes.containerColor,
-                  ),
+                child: Image.asset(
+                  AssetRes.small_logo,
+                  scale: 6,
                 ),
               ),
             ),

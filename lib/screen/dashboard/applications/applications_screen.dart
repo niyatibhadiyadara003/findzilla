@@ -51,12 +51,9 @@ class ApplicationsScreen extends StatelessWidget {
                           Radius.circular(10),
                         ),
                         color: ColorRes.logoColor),
-                    child: Text(
-                      Strings.logo,
-                      style: appTextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 10,
-                          color: ColorRes.containerColor),
+                    child: Image.asset(
+                      AssetRes.small_logo,
+                      scale: 6,
                     ),
                   ),
                   Expanded(

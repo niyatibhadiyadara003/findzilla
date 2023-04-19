@@ -11,7 +11,11 @@ class PrivacyPolicy extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
+          const SizedBox(
+            height: 50,
+          ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
                 padding: const EdgeInsets.all(12),
@@ -22,7 +26,6 @@ class PrivacyPolicy extends StatelessWidget {
                   child: backButton(),
                 ),
               ),
-              const SizedBox(width: 46),
               const Text(
                 "Privacy Policy",
                 style: TextStyle(
@@ -30,6 +33,21 @@ class PrivacyPolicy extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                     height: 1,
                     color: ColorRes.black),
+              ),
+              Visibility(
+                visible: false,
+                maintainAnimation: true,
+                maintainSize: true,
+                maintainState: true,
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: InkWell(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: backButton(),
+                  ),
+                ),
               ),
             ],
           ),

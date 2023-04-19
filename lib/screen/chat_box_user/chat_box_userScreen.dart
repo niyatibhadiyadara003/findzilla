@@ -40,16 +40,9 @@ class ChatBoxUserScreen extends StatelessWidget {
               color: ColorRes.logoColor,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Padding(
-              padding: const EdgeInsets.only(top: 11),
-              child: Text(
-                textAlign: TextAlign.center,
-                Strings.logo,
-                style: appTextStyle(
-                    color: ColorRes.containerColor,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 10),
-              ),
+            child: Image.asset(
+              AssetRes.small_logo,
+              scale: 6,
             ),
           ),
           const SizedBox(width: 80),

@@ -46,13 +46,9 @@ class SignUpScreen extends StatelessWidget {
                             color: ColorRes.logoColor,
                             borderRadius: BorderRadius.circular(15),
                           ),
-                          child: Text(
-                            Strings.logo,
-                            style: appTextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18,
-                              color: ColorRes.containerColor,
-                            ),
+                          child: Image.asset(
+                            AssetRes.small_logo,
+                            scale: 3,
                           ),
                         ),
                       ),
@@ -434,7 +430,60 @@ class SignUpScreen extends StatelessWidget {
                               child: Material(
                                 shadowColor: ColorRes.containerColor,
                                 borderRadius: BorderRadius.circular(12),
-                                child: commonTextFormField(
+                                child: Container(
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    border:
+                                        Border.all(color: ColorRes.borderColor),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 15.0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          "Country",
+                                          style: appTextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w500,
+                                              color: ColorRes.black
+                                                  .withOpacity(0.15)),
+                                        ),
+                                        GetBuilder<SignUpController>(
+                                          id: "dropdown",
+                                          builder: (controller) {
+                                            return DropdownButton(
+                                                iconSize: 35.0,
+                                                iconEnabledColor:
+                                                    Colors.grey.shade400,
+                                                iconDisabledColor:
+                                                    Colors.grey.shade400,
+                                                underline: Container(),
+                                                icon: const Icon(
+                                                    Icons.arrow_drop_down),
+                                                items: controller.items.map(
+                                                  (val) {
+                                                    return DropdownMenuItem<
+                                                        String>(
+                                                      value: val,
+                                                      child: Text(val),
+                                                    );
+                                                  },
+                                                ).toList(),
+                                                onChanged: (String? val) {
+                                                  controller.changeDropdwon(
+                                                      val: val!);
+                                                });
+                                          },
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                /*  commonTextFormField(
                                   controller: controller.countryController,
                                   textDecoration: InputDecoration(
                                     hintText: 'Country',
@@ -519,7 +568,7 @@ class SignUpScreen extends StatelessWidget {
                                             ? errorBorder()
                                             : enableBorder(),
                                   ),
-                                ),
+                                ),*/
                               ),
                             ),
                             controller.countryError == ""
@@ -641,7 +690,7 @@ class SignUpScreen extends StatelessWidget {
                             );
                           }),
                       const SizedBox(height: 28),
-                      Center(
+                      /* Center(
                         child: InkWell(
                           onTap: () {},
                           child: Text(Strings.orContinueWith,
@@ -738,7 +787,7 @@ class SignUpScreen extends StatelessWidget {
                             ),
                           ),
                         ],
-                      ),
+                      ),*/
                       const SizedBox(
                         height: 18,
                       ),

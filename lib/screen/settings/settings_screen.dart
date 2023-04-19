@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:jobseek/screen/dashboard/dashboard_controller.dart';
+import 'package:jobseek/screen/faq_screen/faq_screen.dart';
 import 'package:jobseek/screen/looking_for_screen/looking_for_screen.dart';
+import 'package:jobseek/screen/manager_section/help/terms/terms_Screen.dart';
+import 'package:jobseek/screen/privacy_policy/privacy_policy.dart';
 import 'package:jobseek/screen/settings/appearance/localization.dart';
 import 'package:jobseek/service/pref_services.dart';
 import 'package:jobseek/utils/app_style.dart';
@@ -17,7 +20,6 @@ class SettingsScreenU extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DashBoardController controller = Get.put(DashBoardController());
     return Scaffold(
       backgroundColor: ColorRes.backgroundColor,
       body: Column(
@@ -168,10 +170,8 @@ class SettingsScreenU extends StatelessWidget {
             const SizedBox(height: 10),
             InkWell(
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (con) => const AppearanceScreenU()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (con) => const TermsScreen()));
               },
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
@@ -194,7 +194,7 @@ class SettingsScreenU extends StatelessWidget {
                         ),
                         const SizedBox(width: 15),
                         Text(
-                          Strings.appearance,
+                          "Terms & Conditions",
                           style: appTextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 14,
@@ -223,7 +223,7 @@ class SettingsScreenU extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (con) => const LocalizationScreen(),
+                    builder: (con) => const PrivacyPolicy(),
                   ),
                 );
               },
@@ -248,7 +248,56 @@ class SettingsScreenU extends StatelessWidget {
                         ),
                         const SizedBox(width: 15),
                         Text(
-                          Strings.localization,
+                          "Privacy policy",
+                          style: appTextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              color: ColorRes.black),
+                        ),
+                      ],
+                    ),
+                    const Image(
+                      image: AssetImage(AssetRes.settingaArrow),
+                      height: 15,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 3),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10),
+              color: ColorRes.lightGrey.withOpacity(0.8),
+              height: 1,
+            ),
+            const SizedBox(height: 10),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (con) => FaqScreen()));
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          height: 55,
+                          width: 55,
+                          decoration: BoxDecoration(
+                            color: ColorRes.logoColor,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: const Icon(
+                            Icons.visibility,
+                            color: ColorRes.containerColor,
+                          ),
+                        ),
+                        const SizedBox(width: 15),
+                        Text(
+                          "Faqs",
                           style: appTextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 14,
@@ -330,29 +379,7 @@ class SettingsScreenU extends StatelessWidget {
               padding: const EdgeInsets.all(12.0),
               child: InkWell(
                 onTap: () async {
-                  controller.currentTab = 0;
-                  controller.update(["bottom_bar"]);
-                  final GoogleSignIn googleSignIn = GoogleSignIn();
-                  if (await googleSignIn.isSignedIn()) {
-                    await googleSignIn.signOut();
-                  }
-                  /*   PrefService.clear();*/
-                  PrefService.setValue(PrefKeys.password, "");
-                  PrefService.setValue(PrefKeys.rememberMe, "");
-                  PrefService.setValue(PrefKeys.registerToken, "");
-                  PrefService.setValue(PrefKeys.userId, "");
-                  PrefService.setValue(PrefKeys.country, "");
-                  PrefService.setValue(PrefKeys.email, "");
-                  PrefService.setValue(PrefKeys.totalPost, "");
-                  PrefService.setValue(PrefKeys.phoneNumber, "");
-                  PrefService.setValue(PrefKeys.city, "");
-                  PrefService.setValue(PrefKeys.state, "");
-                  // ignore: use_build_context_synchronously
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(
-                        builder: (context) => const LookingForScreen(),
-                      ),
-                      (route) => false);
+                  settingModalBottomSheet(context);
                 },
                 child: Row(
                   children: [
@@ -388,6 +415,7 @@ class SettingsScreenU extends StatelessWidget {
   }
 
   settingModalBottomSheet(context) async {
+    DashBoardController controller = Get.put(DashBoardController());
     showModalBottomSheet(
         context: context,
         backgroundColor: Colors.transparent,
@@ -402,6 +430,8 @@ class SettingsScreenU extends StatelessWidget {
               ),
             ),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 50),
                 const Image(
@@ -418,42 +448,52 @@ class SettingsScreenU extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Container(
-                          height: 50,
-                          width: 160,
-                          decoration: BoxDecoration(
-                              color: ColorRes.white,
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(10)),
-                              border:
-                                  Border.all(color: ColorRes.containerColor)),
-                          child: Center(
-                              child: Text(
-                            "Cancel",
-                            style: appTextStyle(
-                              color: ColorRes.containerColor,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          )),
-                        ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 160,
+                        decoration: BoxDecoration(
+                            color: ColorRes.white,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(10)),
+                            border: Border.all(color: ColorRes.containerColor)),
+                        child: Center(
+                            child: Text(
+                          "Cancel",
+                          style: appTextStyle(
+                            color: ColorRes.containerColor,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )),
                       ),
                     ),
                     const SizedBox(width: 10),
                     InkWell(
                       onTap: () async {
+                        controller.currentTab = 0;
+                        controller.update(["bottom_bar"]);
                         final GoogleSignIn googleSignIn = GoogleSignIn();
                         if (await googleSignIn.isSignedIn()) {
                           await googleSignIn.signOut();
                         }
-                        PrefService.clear();
+                        /*   PrefService.clear();*/
+                        PrefService.setValue(PrefKeys.password, "");
+                        PrefService.setValue(PrefKeys.rememberMe, "");
+                        PrefService.setValue(PrefKeys.registerToken, "");
+                        PrefService.setValue(PrefKeys.userId, "");
+                        PrefService.setValue(PrefKeys.country, "");
+                        PrefService.setValue(PrefKeys.email, "");
+                        PrefService.setValue(PrefKeys.totalPost, "");
+                        PrefService.setValue(PrefKeys.phoneNumber, "");
+                        PrefService.setValue(PrefKeys.city, "");
+                        PrefService.setValue(PrefKeys.state, "");
                         // ignore: use_build_context_synchronously
                         Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(

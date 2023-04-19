@@ -1,6 +1,6 @@
 class Strings {
   ///-----------------------firstScreen-------------------------------------------
-  static const logo = 'Logo';
+  // static const logo = 'Logo';
   static const jobSeeker = "Job Seeker";
 
   ///-------------------------sentences--------------------------------------------
@@ -147,11 +147,11 @@ class Strings {
   static const searchJobsHere = "Search jobs here...";
   static const viewAll = "View all";
   static const whatAreYouLookingFor = "What are you looking for?";
-  static const postJobVacancy="Post Job Vacancy";
-  static const oopsFailed="Oops, Failed";
-  static const darkMode="Dark Mode";
-  static const enterValidOccupation="Enter Valid Occupation";
-  static const enterValidAddress="Enter Valid Address";
-  static const enterValidEmail="Enter Valid Email";
-  static const enterValidName="Enter Valid Name";
+  static const postJobVacancy = "Post Job Vacancy";
+  static const oopsFailed = "Oops, Failed";
+  static const darkMode = "Dark Mode";
+  static const enterValidOccupation = "Enter Valid Occupation";
+  static const enterValidAddress = "Enter Valid Address";
+  static const enterValidEmail = "Enter Valid Email";
+  static const enterValidName = "Enter Valid Name";
 }

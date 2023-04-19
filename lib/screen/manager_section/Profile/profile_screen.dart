@@ -39,12 +39,9 @@ class ProfileScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Center(
-                      child: Text(
-                        Strings.logo,
-                        style: appTextStyle(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w600,
-                            color: ColorRes.containerColor),
+                      child: Image.asset(
+                        AssetRes.small_logo,
+                        scale: 6,
                       ),
                     ),
                   ),
