@@ -26,7 +26,7 @@ class ChatBoxUserScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     jobDetailsUploadCvController.init();
-    controller.getUserData();
+   controller.getUserData();
     return Scaffold(
       backgroundColor: ColorRes.backgroundColor,
       body: Column(children: [
