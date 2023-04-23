@@ -20,7 +20,7 @@ class ChatLiveScreen extends StatelessWidget {
   final String? roomId;
   final String? otherUserUid;
   final String? userUid;
-  final String? deviceToken;
+
 
   ChatLiveScreen({
     Key? key,
@@ -28,7 +28,7 @@ class ChatLiveScreen extends StatelessWidget {
     this.userUid,
     this.otherUserUid,
     this.roomId,
-    this.deviceToken,
+
   }) : super(key: key);
 
   ChatBoxUserController controller = Get.put(ChatBoxUserController());
@@ -214,18 +214,18 @@ class ChatLiveScreen extends StatelessWidget {
                           ? const SizedBox()
                           : Column(
                               children: [
-                                /* SizedBox(
+                                 SizedBox(
                                     width: Get.width,
                                     height: 35,
                                     child: Center(
                                       child: Text(
                                         controller.timeAgo(data['time'].toDate()),
                                         style: TextStyle(
-                                          color: Colors.green.withOpacity(0.5),
+                                          color: Colors.grey.withOpacity(0.5),
                                         ),
                                       ),
                                     ),
-                                  ),*/
+                                  ),
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment:
@@ -338,17 +338,7 @@ class ChatLiveScreen extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              SendNotificationModel notification =
-                                  SendNotificationModel(
-                                      title: PrefService.getString(
-                                          PrefKeys.fullName),
-                                      body: "Massage",
-                                      fcmTokens: [
-                                    deviceToken.toString(),
-                                    // PrefService.getString(PrefKeys.deviceToken),
-                                  ]);
-                              NotificationService.sendNotification(
-                                  notification);
+
                               if (controller.validation()) {
                                 controller.sendMessage(
                                   roomId.toString(),
