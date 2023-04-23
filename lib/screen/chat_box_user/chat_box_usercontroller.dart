@@ -78,7 +78,7 @@ class ChatBoxUserController extends GetxController implements GetxService {
   getRoomId(String otherUi) async {
     String otherUid = otherUi;
 
-    DocumentReference doc = FirebaseFirestore.instance
+    var doc = FirebaseFirestore.instance
         .collection("chats")
         .doc(getChatId(PrefService.getString(PrefKeys.userId), otherUid));
 
@@ -135,31 +135,8 @@ class ChatBoxUserController extends GetxController implements GetxService {
 
     String msg = msController.text;
 
-    await FirebaseFirestore.instance
-        .collection("chats")
-        .doc(getChatId(userUid, otherUid))
-        .get()
-        .then((value) {
-      if (value['countU'] == null) {
-        countU.add(msg);
-      } else {
-        msgCount = value['countU'];
-        if (msgCount == null) {
-          countU = [];
-          countU.add(msg);
-        } else {
-          if (kDebugMode) {
-            print(msgCount);
-          }
-          countU.add(msg);
-        }
-        if (kDebugMode) {
-          print(countU);
-        }
-      }
-    });
 
-    await setLastMsgInDoc(msg);
+    //await setLastMsgInDoc(msg);
     await setMessage(roomId, msg, userUid);
 
     update(['message']);
@@ -182,14 +159,6 @@ class ChatBoxUserController extends GetxController implements GetxService {
     update(['message']);
   }
 
-  Future<void> lastMessageTrue(String otherUid) async {
-    chatBoxController.countM = [];
-    countU = [];
-    await FirebaseFirestore.instance
-        .collection("chats")
-        .doc(getChatId(userUid, otherUid))
-        .update({"lastMessageRead": true, "countM": null});
-  }
 
   Future<void> setReadTrue(String docId) async {
     await FirebaseFirestore.instance
@@ -201,7 +170,7 @@ class ChatBoxUserController extends GetxController implements GetxService {
     //await setReadInChatDoc(true);
   }
 
-  Future<void> setLastMsgInDoc(String msg) async {
+ /* Future<void> setLastMsgInDoc(String msg) async {
     if (kDebugMode) {
       print(countU.length);
     }
@@ -213,7 +182,7 @@ class ChatBoxUserController extends GetxController implements GetxService {
       "lastMessageRead": false,
       "countU": countU.length,
     });
-  }
+  }*/
 
   Future<void> sendAlertMsg() async {
     await FirebaseFirestore.instance

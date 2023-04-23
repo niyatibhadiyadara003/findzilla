@@ -29,12 +29,12 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
             String? o;
 
             if (kDebugMode) {
-              print(contro.userData[0]['companyName'][0]['companyname']);
+              print(contro.userData[0]['companyName'][0]);
             }
 
             if (homeScreen == true) {
               contro.userData[i]['companyName'].forEach((element) {
-                if (element['companyname'].toString().toLowerCase() ==
+                if (element.toString().toLowerCase() ==
                         PrefService.getString(PrefKeys.companyName)
                             .toString()
                             .toLowerCase() &&
@@ -42,19 +42,19 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                   if (kDebugMode) {
                     print(element);
                   }
-                  o = element['companyname'];
+                  o = element;
                 }
               });
             } else {
               contro.userData[i]['companyName'].forEach((element) {
-                if (element['companyname'].toString().toLowerCase() ==
+                if (element.toString().toLowerCase() ==
                     PrefService.getString(PrefKeys.companyName)
                         .toString()
                         .toLowerCase()) {
                   if (kDebugMode) {
                     print(element);
                   }
-                  o = element['companyname'];
+                  o = element;
                 }
               });
             }

@@ -38,7 +38,7 @@ class ChatLiveScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        await controller.lastMessageTrue(otherUserUid!);
+
         controller.msController.clear();
         return true;
       },
@@ -56,7 +56,7 @@ class ChatLiveScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(15),
                     child: InkWell(
                       onTap: () {
-                        controller.lastMessageTrue(otherUserUid!);
+
                         controller.msController.clear();
 
                         Get.back();

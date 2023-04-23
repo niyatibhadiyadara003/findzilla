@@ -533,7 +533,7 @@ void settingModalBottomSheet(
                         });
                         String? position;
                         args['companyName'].forEach((e) {
-                          if (e['companyname'] ==
+                          if (e ==
                               PrefService.getString(PrefKeys.companyName)) {
                             position = e['position'].toString();
 

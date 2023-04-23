@@ -20,7 +20,7 @@ class ChatBoxLiveScreenM extends StatelessWidget {
   final String? roomId;
   final String? otherUserUid;
   final String? userUid;
-  final String? deviceToken;
+
 
   ChatBoxLiveScreenM(
       {Key? key,
@@ -28,7 +28,7 @@ class ChatBoxLiveScreenM extends StatelessWidget {
       this.userUid,
       this.otherUserUid,
       this.roomId,
-      this.deviceToken})
+      })
       : super(key: key);
 
   ChatBoxController controller = Get.put(ChatBoxController());
@@ -39,7 +39,7 @@ class ChatBoxLiveScreenM extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        await controller.lastMessageTrue(otherUserUid!);
+
         controller.msController.clear();
         return true;
       },
@@ -57,7 +57,7 @@ class ChatBoxLiveScreenM extends StatelessWidget {
                     padding: const EdgeInsets.all(15),
                     child: InkWell(
                       onTap: () {
-                        controller.lastMessageTrue(otherUserUid!);
+
                         controller.msController.clear();
                         Get.back();
                       },
@@ -193,6 +193,12 @@ class ChatBoxLiveScreenM extends StatelessWidget {
                     scrollController: controller.listScrollController,
                     isLive: true,
                     reverse: true,
+                    query: FirebaseFirestore.instance
+                        .collection("chats")
+                        .doc(roomId)
+                        .collection(roomId!)
+                        .orderBy("time", descending: true),
+                    itemBuilderType: PaginateBuilderType.listView,
                     itemBuilder: (context, docementSnapshot, index) {
                       Map<String, dynamic>? data = docementSnapshot[index]
                           .data() as Map<String, dynamic>?;
@@ -294,12 +300,7 @@ class ChatBoxLiveScreenM extends StatelessWidget {
 
                       return box;
                     },
-                    query: FirebaseFirestore.instance
-                        .collection("chats")
-                        .doc(roomId)
-                        .collection(roomId!)
-                        .orderBy("time", descending: true),
-                    itemBuilderType: PaginateBuilderType.listView),
+                    ),
               ),
               const SizedBox(
                 height: 15,
@@ -334,18 +335,7 @@ class ChatBoxLiveScreenM extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              SendNotificationModel notification =
-                                  SendNotificationModel(
-                                      title: PrefService.getString(
-                                          PrefKeys.companyName),
-                                      body: "Massage",
-                                      fcmTokens: [
-                                    deviceToken.toString(),
 
-                                    /* "ee7zgJFLRO2vRYUB2p_Yan:APA91bFRLU7a29lkqG50lhPDzcFyROQhQreHtHTTrndMySyQBPYUBfQ9MnhEcb02awiEK1sFIw02mFSjes9Dzpvq-zhm7JnJbG2wLMbyiSxHkGzODdsl3crcMyuIzeijTZbSHfLIu4t4"*/
-                                  ]);
-                              NotificationService.sendNotification(
-                                  notification);
 
                               if (controller.validation()) {
                                 controller.sendMessage(
