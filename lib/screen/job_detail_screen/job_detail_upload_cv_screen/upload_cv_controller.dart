@@ -21,7 +21,7 @@ class JobDetailsUploadCvController extends GetxController {
     await firestore.collection("Apply").get().then((value) {
       value.docs.forEach((element) {
         if (element['uid'] == PrefService.getString(PrefKeys.userId)) {
-          for(int i =0; i<=element['companyName'].length; i++) {
+          for(int i =0; i<element['companyName'].length; i++) {
             companyList.add(element['companyName'][i]);
           }
         }
