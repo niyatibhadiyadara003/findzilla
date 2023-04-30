@@ -106,8 +106,7 @@ Widget allChat() {
                               String? o;
 
                               companyList.forEach((element) {
-                                if (element.toString().toLowerCase() ==
-                                    data['name'].toString().toLowerCase()) {
+                                if (element.toString().toLowerCase() == data['name'].toString().toLowerCase()) {
                                   o = element;
                                 }
                               });

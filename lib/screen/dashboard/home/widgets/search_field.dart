@@ -131,7 +131,7 @@ Widget searchAreaChatU() {
 }
 
 Widget searchAreaChatM() {
-  final chatBoxController = Get.put(ChatBoxController());
+  final ChatBoxController chatBoxController = Get.put(ChatBoxController());
 
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 18),

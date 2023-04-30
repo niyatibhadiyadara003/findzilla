@@ -19,14 +19,12 @@ import 'chat_box_controller.dart';
 // ignore: must_be_immutable
 class ChatBoxScreen extends StatelessWidget {
   ChatBoxScreen({Key? key}) : super(key: key);
-  final controller = Get.put(ChatBoxController());
+  final ChatBoxController controller = Get.put(ChatBoxController());
   JobDetailsUploadCvController jobDetailsUploadCvController =
       Get.put(JobDetailsUploadCvController());
 
-  ChatBoxUserController chatBoxUserController =
-      Get.put(ChatBoxUserController());
 
-  CreateVacanciesController create = Get.put(CreateVacanciesController());
+
 
   @override
   Widget build(BuildContext context) {

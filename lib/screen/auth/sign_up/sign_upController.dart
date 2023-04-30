@@ -225,6 +225,7 @@ class SignUpController extends GetxController {
           "imageUrl": "",
           "deviceTokenU": PrefService.getString(PrefKeys.deviceToken),
         };
+        await PrefService.setValue(PrefKeys.userId, userCredential.user!.uid);
         await PrefService.setValue(
             PrefKeys.email, emailController.text.toString());
         await PrefService.setValue(

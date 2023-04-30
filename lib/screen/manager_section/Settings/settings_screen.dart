@@ -4,6 +4,7 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:jobseek/screen/looking_for_screen/looking_for_screen.dart';
+import 'package:jobseek/screen/job_detail_screen/job_detail_upload_cv_screen/upload_cv_controller.dart';
 import 'package:jobseek/screen/manager_section/Appearance/Appearance_controller.dart';
 import 'package:jobseek/service/pref_services.dart';
 import 'package:jobseek/utils/app_style.dart';
@@ -387,11 +388,17 @@ class SettingScreenM extends StatelessWidget {
                     const SizedBox(width: 10),
                     InkWell(
                       onTap: () async {
+                        PrefService.setValue(PrefKeys.userId, "");
+
+
+
                         final GoogleSignIn googleSignIn = GoogleSignIn();
                         if (await googleSignIn.isSignedIn()) {
                           await googleSignIn.signOut();
                         }
                         await FirebaseAuth.instance.signOut();
+
+                        companyList = [];
                         /* PrefService.clear();*/
                         PrefService.setValue(PrefKeys.password, "");
                         PrefService.setValue(PrefKeys.rememberMe, "");

@@ -8,7 +8,7 @@ import 'package:jobseek/service/pref_services.dart';
 import 'package:jobseek/utils/pref_keys.dart';
 import 'chat_live_screen.dart';
 
-ChatBoxController chatBoxController = Get.put(ChatBoxController());
+
 
 class ChatBoxUserController extends GetxController implements GetxService {
   TextEditingController searchController = TextEditingController();
@@ -16,8 +16,11 @@ class ChatBoxUserController extends GetxController implements GetxService {
   RxBool loader = false.obs;
   bool search = false;
   String? roomId;
+  String userUid = PrefService.getString(PrefKeys.userId).toString();
   TextEditingController msController = TextEditingController();
   final ScrollController listScrollController = ScrollController();
+
+
 
   DateTime lastMsg = DateTime.now();
   List countU = [];
@@ -35,6 +38,13 @@ class ChatBoxUserController extends GetxController implements GetxService {
   }
 
   int currentTab = 0;
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    userUid = PrefService.getString(PrefKeys.userId).toString();
+  }
 
   void onBottomBarChange(int index) {
     currentTab = index;
@@ -65,7 +75,6 @@ class ChatBoxUserController extends GetxController implements GetxService {
     return true;
   }
 
-  String userUid = PrefService.getString(PrefKeys.userId).toString();
 
   String getChatId(String uid1, String uid2) {
     if (uid1.hashCode > uid2.hashCode) {
@@ -117,8 +126,8 @@ class ChatBoxUserController extends GetxController implements GetxService {
     loader.value = false;
 
     Get.to(() => ChatLiveScreen(
-          roomId: roomId,
           name: name,
+          roomId: roomId,
           otherUserUid: otherUid,
           userUid: userUid,
 
