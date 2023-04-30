@@ -58,7 +58,7 @@ class SignInScreenControllerM extends GetxController {
             PrefService.setValue(
                 PrefKeys.totalPost, value.docs[i]["TotalPost"]);
             PrefService.setValue(PrefKeys.company, value.docs[i]["company"]);
-            PrefService.setValue(PrefKeys.userId, value.docs[i].id);
+            await PrefService.setValue(PrefKeys.userId, value.docs[i].id);
 
             await fireStore
                 .collection("Auth")

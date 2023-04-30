@@ -14,7 +14,7 @@ import 'package:jobseek/utils/string.dart';
 import 'package:paginate_firestore/paginate_firestore.dart';
 import 'chat_box_usercontroller.dart';
 
-// ignore: must_be_immutable
+
 class ChatLiveScreen extends StatelessWidget {
   final String? name;
   final String? roomId;
@@ -25,14 +25,14 @@ class ChatLiveScreen extends StatelessWidget {
   ChatLiveScreen({
     Key? key,
     this.name,
-    this.userUid,
-    this.otherUserUid,
     this.roomId,
+    this.otherUserUid,
+    this.userUid,
 
   }) : super(key: key);
 
   ChatBoxUserController controller = Get.put(ChatBoxUserController());
-  ChatBoxController chatBoxController = Get.put(ChatBoxController());
+
 
   @override
   Widget build(BuildContext context) {
@@ -162,12 +162,12 @@ class ChatLiveScreen extends StatelessWidget {
                       const SizedBox(width: 14),
                       InkWell(
                         onTap: () {
-                          Navigator.push(
+                          /*Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (con) => const CallJoiningScreen(),
                             ),
-                          );
+                          );*/
                         },
                         child: Container(
                           height: 35,

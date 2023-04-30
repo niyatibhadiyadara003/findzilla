@@ -8,12 +8,13 @@ import 'package:jobseek/service/pref_services.dart';
 import 'package:jobseek/utils/pref_keys.dart';
 import 'chat_box_live-Screen.dart';
 
-ChatBoxUserController chatBoxUserController = Get.put(ChatBoxUserController());
+
 
 class ChatBoxController extends GetxController implements GetxService {
   TextEditingController searchController = TextEditingController();
   RxInt selectedJobs = 0.obs;
   RxBool loader = false.obs;
+  String userUidM = PrefService.getString(PrefKeys.userId).toString();
   String? roomId;
   DateTime lastMsg = DateTime.now();
   TextEditingController msController = TextEditingController();
@@ -28,12 +29,21 @@ class ChatBoxController extends GetxController implements GetxService {
     "Archived",
   ].obs;
 
+
+
   onTapJobs(int index) {
     selectedJobs.value = index;
     //update(["hList"]);
   }
 
   int currentTab = 0;
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    userUidM = PrefService.getString(PrefKeys.userId).toString();
+  }
 
   void onBottomBarChange(int index) {
     currentTab = index;
@@ -65,7 +75,7 @@ class ChatBoxController extends GetxController implements GetxService {
     return true;
   }
 
-  String userUid = PrefService.getString(PrefKeys.userId).toString();
+
 
   String getChatId(String uid1, String uid2) {
     if (uid1.hashCode > uid2.hashCode) {
@@ -83,28 +93,28 @@ class ChatBoxController extends GetxController implements GetxService {
         .doc(getChatId(PrefService.getString(PrefKeys.userId), otherUid));
 
     await doc
-        .collection(getChatId(userUid, otherUid))
+        .collection(getChatId(userUidM, otherUid))
         .get()
         .then((value) async {
       DocumentSnapshot<Object?> i = await doc.get();
       if (i.exists == false) {
         await doc.set({
-          "uidList": [userUid, otherUid],
+          "uidList": [userUidM, otherUid],
         });
       }
       if (value.docs.isNotEmpty) {
-        roomId = getChatId(userUid, otherUid);
+        roomId = getChatId(userUidM, otherUid);
       } else {
         await FirebaseFirestore.instance
             .collection("chats")
-            .doc(getChatId(userUid, otherUid))
-            .collection(getChatId(userUid, otherUid))
+            .doc(getChatId(userUidM, otherUid))
+            .collection(getChatId(userUidM, otherUid))
             .get()
             .then((value) {
           if (value.docs.isNotEmpty) {
-            roomId = getChatId(userUid, otherUid);
+            roomId = getChatId(userUidM, otherUid);
           } else {
-            roomId = getChatId(userUid, otherUid);
+            roomId = getChatId(userUidM, otherUid);
           }
         });
       }
@@ -121,7 +131,7 @@ class ChatBoxController extends GetxController implements GetxService {
         roomId: roomId,
         name: name,
         otherUserUid: otherUid,
-        userUid: userUid,
+        userUid: userUidM,
         ));
   }
 
@@ -137,7 +147,7 @@ class ChatBoxController extends GetxController implements GetxService {
 
 
     //setLastMsgInDoc(msg);
-    await setMessage(roomId, msg, userUid);
+    await setMessage(roomId, msg, userUidM);
 
     update(['message']);
   }
@@ -208,7 +218,7 @@ class ChatBoxController extends GetxController implements GetxService {
         .doc()
         .set({
       "content": "new Day",
-      "senderUid": userUid,
+      "senderUid": userUidM,
       "type": "alert",
       "time": DateTime.now()
     });

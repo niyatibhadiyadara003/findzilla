@@ -125,7 +125,7 @@ class SignInScreenController extends GetxController {
               print("$isUser====]]]]]");
             }
 
-            PrefService.setValue(PrefKeys.userId, value.docs[i].id);
+            await PrefService.setValue(PrefKeys.userId, value.docs[i].id);
             PrefService.setValue(PrefKeys.fullName, value.docs[i]["fullName"]);
             PrefService.setValue(PrefKeys.email, value.docs[i]["Email"]);
             PrefService.setValue(PrefKeys.phoneNumber, value.docs[i]["Phone"]);

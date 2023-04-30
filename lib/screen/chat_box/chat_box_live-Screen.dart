@@ -23,17 +23,11 @@ class ChatBoxLiveScreenM extends StatelessWidget {
 
 
   ChatBoxLiveScreenM(
-      {Key? key,
-      this.name,
-      this.userUid,
-      this.otherUserUid,
-      this.roomId,
+      {Key? key, this.name, this.roomId, this.otherUserUid, this.userUid,
       })
       : super(key: key);
 
   ChatBoxController controller = Get.put(ChatBoxController());
-  ChatBoxUserController chatBoxUserController =
-      Get.put(ChatBoxUserController());
 
   @override
   Widget build(BuildContext context) {
