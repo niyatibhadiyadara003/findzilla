@@ -12,13 +12,15 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 
 class SeeDetailsScreen extends StatelessWidget {
-  const SeeDetailsScreen({Key? key}) : super(key: key);
+   SeeDetailsScreen({Key? key}) : super(key: key);
+
+
+  final SeeDetailsController controller = Get.put(SeeDetailsController());
 
   @override
   Widget build(BuildContext context) {
     var args = Get.arguments;
 
-    final controller = Get.put(SeeDetailsController());
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: ColorRes.backgroundColor,
@@ -52,7 +54,7 @@ class SeeDetailsScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 12),
-                  Container(
+                 /* Container(
                     height: 60,
                     width: Get.width - 152,
                     margin: const EdgeInsets.only(top: 10),
@@ -106,7 +108,7 @@ class SeeDetailsScreen extends StatelessWidget {
                                 width: Get.width * 0.3,
                                 child: Text(
                                   controller.filepath
-                                      .value /*"Resume - Adam Smith.pdf"*/,
+                                      .value ,
                                   style: appTextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.w600,
@@ -121,7 +123,8 @@ class SeeDetailsScreen extends StatelessWidget {
                                       padding: const EdgeInsets.only(bottom: 1),
                                       child: Flexible(
                                         child: Text(
-                                          "${args['fileName']}",
+                                          "bbh",
+                                          //"${args['fileName']}",
                                           overflow: TextOverflow.ellipsis,
                                           style: appTextStyle(
                                               fontSize: 10,
@@ -166,7 +169,8 @@ class SeeDetailsScreen extends StatelessWidget {
                                   ),
                                   const SizedBox(width: 12),
                                   Text(
-                                    "${args['fileSize'].toStringAsFixed(1)} MB",
+                                    "jk",
+                                    //"${args['fileSize'].toStringAsFixed(1)} MB",
                                     style: appTextStyle(
                                       fontWeight: FontWeight.w400,
                                       fontSize: 8,
@@ -180,7 +184,7 @@ class SeeDetailsScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                  ),
+                  ),*/
                 ],
               ),
               const SizedBox(

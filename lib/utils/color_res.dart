@@ -19,7 +19,7 @@ class ColorRes {
   static const grey = Color(0xff616162);
   static const orange = Color(0xffFFB800);
 
-  static const borderColor = Color(0xffF3ECFF);
+  static final borderColor = Color(0xff4969eb).withOpacity(0.1);
 
   static const lightGrey = Color(0xffD9D9D9);
   static const lightGreen = Color(0xffEDF9F0);

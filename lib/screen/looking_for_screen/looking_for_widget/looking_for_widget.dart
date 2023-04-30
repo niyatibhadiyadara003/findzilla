@@ -18,18 +18,7 @@ Widget lookingForYouBox(String icon, text, bool isSelect) {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Container(
-          height: Get.height * 0.10,
-          width: Get.height * 0.10,
-          padding: const EdgeInsets.all(20),
-          decoration:
-              BoxDecoration(shape: BoxShape.circle, color: ColorRes.logoColor),
-          child: SizedBox(
-            height: 30,
-            width: 30,
-            child: Image.asset(icon),
-          ),
-        ),
+        Image.asset(icon, height: 60,),
         const SizedBox(
           height: 10,
         ),

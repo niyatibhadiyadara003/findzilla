@@ -14,7 +14,7 @@ import 'package:jobseek/utils/string.dart';
 
 class ProfileUserScreenU extends StatelessWidget {
   ProfileUserScreenU({Key? key}) : super(key: key);
-  final controller = Get.put(ProfileUserController());
+  final ProfileUserController controller = Get.put(ProfileUserController());
 
   @override
   Widget build(BuildContext context) {
@@ -25,57 +25,51 @@ class ProfileUserScreenU extends StatelessWidget {
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Column(
           children: [
-            const SizedBox(height: 50),
-            Row(children: [
-              Container(
-                margin: const EdgeInsets.all(15),
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  color: ColorRes.logoColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Image.asset(
+            const SizedBox(height: 55),
+            Padding(
+              padding: EdgeInsets.only(left: 18),
+              child: Row(children: [
+                Image.asset(
                   AssetRes.small_logo,
-                  scale: 6,
+                  height: 40,
                 ),
-              ),
-              const Spacer(),
-              Center(
-                child: Text(
-                  Strings.profile,
-                  style: appTextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                      height: 1,
-                      color: ColorRes.black),
-                ),
-              ),
-              const Spacer(),
-              Container(
-                margin: const EdgeInsets.all(15),
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  color: ColorRes.logoColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (con) => const SettingsScreenU(),
-                      ),
-                    );
-                  },
-                  child: const Icon(
-                    Icons.settings,
-                    color: ColorRes.containerColor,
+                const Spacer(),
+                Center(
+                  child: Text(
+                    Strings.profile,
+                    style: appTextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        height: 1,
+                        color: ColorRes.black),
                   ),
                 ),
-              ),
-            ]),
+                const Spacer(),
+                Container(
+                  margin: const EdgeInsets.all(15),
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    color: ColorRes.logoColor,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (con) => const SettingsScreenU(),
+                        ),
+                      );
+                    },
+                    child: const Icon(
+                      Icons.settings,
+                      color: ColorRes.containerColor,
+                    ),
+                  ),
+                ),
+              ]),
+            ),
             const SizedBox(height: 10),
             SizedBox(
               height: Get.height - 210,

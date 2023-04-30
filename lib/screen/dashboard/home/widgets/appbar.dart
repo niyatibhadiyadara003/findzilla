@@ -14,17 +14,9 @@ Widget homeAppBar() {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
+        Image.asset(
+          AssetRes.small_logo,
           height: 40,
-          width: 40,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              color: ColorRes.logoColor),
-          child: Image.asset(
-            AssetRes.small_logo,
-            scale: 6,
-          ),
         ),
         Expanded(
           child: Container(
@@ -63,20 +55,7 @@ Widget homeAppBar() {
           height: 40,
           width: 40,
         ),
-        /* InkWell(
-          onTap: () => Get.toNamed(AppRes.notificationScreen),
-          child: Container(
-              height: 40,
-              width: 40,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                  color: ColorRes.logoColor),
-              child: const Icon(
-                Icons.notifications,
-                color: ColorRes.containerColor,
-              )),
-        ),*/
+
       ],
     ),
   );

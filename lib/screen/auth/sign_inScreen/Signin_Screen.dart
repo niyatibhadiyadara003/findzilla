@@ -54,18 +54,9 @@ class _SigninScreenUState extends State<SigninScreenU> {
                         backButton(),
                         // SizedBox(height: Get.height * 0.061),
                         Center(
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: Get.height * 0.1,
-                            width: Get.height * 0.1,
-                            decoration: BoxDecoration(
-                              color: ColorRes.logoColor,
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Image.asset(
-                              AssetRes.small_logo,
-                              scale: 3,
-                            ),
+                          child: Image.asset(
+                            AssetRes.small_logo,
+                            height: 60,
                           ),
                         ),
                         SizedBox(height: Get.height * 0.022),
@@ -136,8 +127,7 @@ class _SigninScreenUState extends State<SigninScreenU> {
                                     hintStyle: GoogleFonts.poppins(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w500,
-                                        color:
-                                            ColorRes.black.withOpacity(0.15)),
+                                        color: ColorRes.black.withOpacity(0.15)),
                                     border: controller.emailController.text
                                             .trim()
                                             .isEmpty
@@ -525,92 +515,50 @@ class _SigninScreenUState extends State<SigninScreenU> {
                           ),
                         ),
                         SizedBox(height: Get.height * 0.035),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                controller.faceBookSignIn();
-                              },
-                              child: Container(
-                                height: 50,
-                                width: 145,
-                                decoration: BoxDecoration(
-                                    border:
-                                        Border.all(color: ColorRes.borderColor),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          offset: const Offset(6, 6),
-                                          color: ColorRes.containerColor
-                                              .withOpacity(0.08),
-                                          spreadRadius: 0,
-                                          blurRadius: 35),
-                                    ],
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: ColorRes.white),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    const Image(
-                                      image: AssetImage(
-                                        AssetRes.facebookImage,
-                                      ),
-                                      height: 27,
-                                    ),
-                                    const SizedBox(width: 15),
-                                    Text(Strings.facebook,
-                                        style: GoogleFonts.poppins(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 15,
-                                            color: ColorRes.black)),
+                        Align(
+                          alignment: Alignment.center,
+                          child: InkWell(
+                            onTap: () {
+                              controller.signWithGoogle();
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 145,
+                              decoration: BoxDecoration(
+                                  border:
+                                  Border.all(color: ColorRes.borderColor),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        offset: const Offset(6, 6),
+                                        color: ColorRes.containerColor
+                                            .withOpacity(0.08),
+                                        spreadRadius: 0,
+                                        blurRadius: 35),
                                   ],
-                                ),
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: ColorRes.white),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Image(
+                                    image: AssetImage(
+                                      AssetRes.googleLogo,
+                                    ),
+                                    height: 27,
+                                  ),
+                                  const SizedBox(width: 15),
+                                  Text(
+                                    Strings.google,
+                                    style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 15,
+                                        color: ColorRes.black),
+                                  ),
+                                ],
                               ),
                             ),
-                            InkWell(
-                              onTap: () {
-                                controller.signWithGoogle();
-                              },
-                              child: Container(
-                                height: 50,
-                                width: 145,
-                                decoration: BoxDecoration(
-                                    border:
-                                        Border.all(color: ColorRes.borderColor),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          offset: const Offset(6, 6),
-                                          color: ColorRes.containerColor
-                                              .withOpacity(0.08),
-                                          spreadRadius: 0,
-                                          blurRadius: 35),
-                                    ],
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: ColorRes.white),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    const Image(
-                                      image: AssetImage(
-                                        AssetRes.googleLogo,
-                                      ),
-                                      height: 27,
-                                    ),
-                                    const SizedBox(width: 15),
-                                    Text(
-                                      Strings.google,
-                                      style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 15,
-                                          color: ColorRes.black),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                         SizedBox(height: Get.height * 0.033),
                         Row(

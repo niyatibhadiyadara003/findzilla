@@ -137,29 +137,7 @@ class ChatLiveScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (con) => const VideoJoinScreen(),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          height: 35,
-                          width: 35,
-                          decoration: BoxDecoration(
-                            color: ColorRes.logoColor,
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(8),
-                            ),
-                          ),
-                          child: const Icon(Icons.videocam,
-                              color: ColorRes.containerColor),
-                        ),
-                      ),
-                      const SizedBox(width: 14),
+
                       InkWell(
                         onTap: () {
                           /*Navigator.push(

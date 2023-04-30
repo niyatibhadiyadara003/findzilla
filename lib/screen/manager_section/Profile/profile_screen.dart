@@ -15,7 +15,7 @@ import 'package:jobseek/utils/string.dart';
 // ignore: must_be_immutable
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({Key? key}) : super(key: key);
-  final controller = Get.put(ProfileController());
+  final ProfileController controller = Get.put(ProfileController());
   static FirebaseFirestore fireStore = FirebaseFirestore.instance;
 
   CreateVacanciesController getCreate = Get.put(CreateVacanciesController());
@@ -27,23 +27,13 @@ class ProfileScreen extends StatelessWidget {
       backgroundColor: ColorRes.backgroundColor,
       body: Obx(() => Column(
             children: [
-              const SizedBox(height: 60),
+              const SizedBox(height: 50),
               Row(children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                  child: Container(
+                  child:  Image.asset(
+                    AssetRes.small_logo,
                     height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      color: ColorRes.logoColor,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Center(
-                      child: Image.asset(
-                        AssetRes.small_logo,
-                        scale: 6,
-                      ),
-                    ),
                   ),
                 ),
                 const Spacer(),
@@ -101,22 +91,18 @@ class ProfileScreen extends StatelessWidget {
                                             decoration: BoxDecoration(
                                               color: ColorRes.black,
                                               shape: BoxShape.circle,
-                                              image: (getCreate.url == "")
+                                              image: (controller.url == "")
                                                   ? DecorationImage(
                                                       image: const AssetImage(
                                                         AssetRes.roundAirbnb,
                                                       ),
-                                                      fit: BoxFit.fill,
-                                                      onError:
-                                                          (error, starcase) {
-                                                        Image.asset(
-                                                            AssetRes.userImage);
-                                                      })
+                                                      fit: BoxFit.cover,
+                                                     )
                                                   : DecorationImage(
                                                       image: NetworkImage(
-                                                        getCreate.url,
+                                                        controller.url,
                                                       ),
-                                                      fit: BoxFit.fill),
+                                                      fit: BoxFit.cover),
                                             ),
                                           ),
                                         ],

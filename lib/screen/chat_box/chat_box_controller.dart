@@ -146,7 +146,7 @@ class ChatBoxController extends GetxController implements GetxService {
 
 
 
-    //setLastMsgInDoc(msg);
+    setLastMsgInDoc(msg);
     await setMessage(roomId, msg, userUidM);
 
     update(['message']);
@@ -175,16 +175,13 @@ class ChatBoxController extends GetxController implements GetxService {
     update(["message"]);
   }
 
-/*
   Future<void> lastMessageTrue(String otherUid) async {
-    countM = [];
-    chatBoxUserController.countU = [];
+
     await FirebaseFirestore.instance
         .collection("chats")
-        .doc(getChatId(userUid, otherUid))
+        .doc(getChatId(userUidM, otherUid))
         .update({"lastMessageRead": true, "countU": null});
   }
-*/
 
   Future<void> setReadTrue(String docId) async {
     await FirebaseFirestore.instance
@@ -193,22 +190,22 @@ class ChatBoxController extends GetxController implements GetxService {
         .collection(roomId!)
         .doc(docId)
         .update({"read": true});
-    //await setReadInChatDoc(true);
+    await setReadInChatDoc(true);
   }
 
-/*  Future<void> setLastMsgInDoc(String msg) async {
+  Future<void> setLastMsgInDoc(String msg) async {
     if (kDebugMode) {
       print(countM.length);
     }
     await FirebaseFirestore.instance.collection("chats").doc(roomId).update({
       "lastMessage": msg,
-      "lastMessageSender": userUid,
+      "lastMessageSender": userUidM,
       "lastMessageTime": DateTime.now(),
       "lastMessageRead": false,
       "countM": countM.length,
       "deviceTokenM": PrefKeys.deviceToken
     });
-  }*/
+  }
 
   Future<void> sendAlertMsg() async {
     await FirebaseFirestore.instance
@@ -224,12 +221,12 @@ class ChatBoxController extends GetxController implements GetxService {
     });
   }
 
-  /*Future<void> setReadInChatDoc(bool status) async {
+  Future<void> setReadInChatDoc(bool status) async {
     await FirebaseFirestore.instance
         .collection("chats")
         .doc(roomId)
         .update({"lastMessageRead": status});
-  }*/
+  }
 
   String timeAgo(DateTime d) {
     Duration diff = DateTime.now().difference(d);
