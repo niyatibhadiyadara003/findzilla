@@ -127,48 +127,7 @@ class ChatBoxScreen extends StatelessWidget {
           // ),
           searchAreaChatM(),
           const SizedBox(height: 20),
-          Container(
-            alignment: Alignment.centerLeft,
-            margin: const EdgeInsets.all(15),
-            padding: const EdgeInsets.only(right: 20),
-            height: 32,
-            child: ListView.builder(
-                itemCount: controller.jobs.length,
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () => controller.onTapJobs(index),
-                    child: Obx(
-                      () => Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        height: 32,
-                        width: 70,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                                color: ColorRes.containerColor, width: 2),
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(10),
-                            ),
-                            color: controller.selectedJobs.value == index
-                                ? ColorRes.containerColor
-                                : ColorRes.white),
-                        child: Text(
-                          controller.jobs[index],
-                          style: appTextStyle(
-                              color: controller.selectedJobs.value == index
-                                  ? ColorRes.white
-                                  : ColorRes.containerColor,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                    ),
-                  );
-                }),
-          ),
+
           allChat(),
         ],
       ),
