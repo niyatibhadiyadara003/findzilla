@@ -30,7 +30,7 @@ class ManagerApplicationScreen extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(
-            height: 60,
+            height: 65,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -39,19 +39,9 @@ class ManagerApplicationScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
+                    Image.asset(
+                      AssetRes.small_logo,
                       height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                        color: ColorRes.logoColor,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Center(
-                        child: Image.asset(
-                          AssetRes.small_logo,
-                          scale: 6,
-                        ),
-                      ),
                     ),
                     InkWell(
                       onTap: () {
@@ -71,7 +61,7 @@ class ManagerApplicationScreen extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
-                          child: Image.asset(AssetRes.add1),
+                          child: Image.asset(AssetRes.add1, color: ColorRes.containerColor,),
                         ),
                       ),
                     ),
@@ -161,28 +151,7 @@ class ManagerApplicationScreen extends StatelessWidget {
                   );
                 }),
           ),
-          // Obx(() => controller.selectedJobs2.value == 0
-          //     ? application(fireStore.collection("allVacancies").snapshots())
-          //     : controller.selectedJobs2.value == 1
-          //         ? application(
-          //             fireStore
-          //                 .collection("type")
-          //                 .doc("Active")
-          //                 .collection("Active")
-          //                 .snapshots(),
-          //           )
-          //         : controller.selectedJobs2.value == 2
-          //             ? application(
-          //                 fireStore
-          //                     .collection("type")
-          //                     .doc("Inactive")
-          //                     .collection("Inactive")
-          //                     .snapshots(),
-          //               )
-          //             : Center(
-          //                 child: Text(
-          //                     controller.jobs2[controller.selectedJobs2.value]),
-          //               ))
+
           const SizedBox(height: 18),
           GetBuilder<ManagerApplicationScreenController>(
               id: "search",
@@ -377,13 +346,17 @@ class ManagerApplicationScreen extends StatelessWidget {
                                                                       child:
                                                                           Row(
                                                                         children: [
-                                                                          Image(
-                                                                            image:
-                                                                                NetworkImage(controller.documentData[index]["imageUrl"]),
-                                                                            height:
-                                                                                62,
-                                                                            width:
-                                                                                62,
+
+                                                                          Container(
+                                                                            height: 62,
+                                                                            width: 62,
+                                                                            decoration: BoxDecoration(
+                                                                              borderRadius: BorderRadius.circular(12),
+                                                                              image: DecorationImage(
+                                                                                image: NetworkImage(controller.documentData[index]["imageUrl"]),
+                                                                                fit: BoxFit.cover
+                                                                              ),
+                                                                            ),
                                                                           ),
                                                                           const SizedBox(
                                                                               width: 20),
@@ -485,8 +458,7 @@ class ManagerApplicationScreen extends StatelessWidget {
                                                                     index) {
                                                               if (controller.documentData[
                                                                           index]
-                                                                      [
-                                                                      "Status"] ==
+                                                                      ["Status"] ==
                                                                   "Inactive") {
                                                                 return (PrefService.getString(PrefKeys
                                                                             .companyName) !=
@@ -522,10 +494,16 @@ class ManagerApplicationScreen extends StatelessWidget {
                                                                           child:
                                                                               Row(
                                                                             children: [
-                                                                              Image.asset(
-                                                                                AssetRes.airBnbLogo,
+                                                                              Container(
                                                                                 height: 62,
                                                                                 width: 62,
+                                                                                decoration: BoxDecoration(
+                                                                                  borderRadius: BorderRadius.circular(12),
+                                                                                  image: DecorationImage(
+                                                                                      image: NetworkImage(controller.documentData[index]["imageUrl"]),
+                                                                                      fit: BoxFit.cover
+                                                                                  ),
+                                                                                ),
                                                                               ),
                                                                               const SizedBox(width: 20),
                                                                               Padding(
@@ -652,10 +630,16 @@ class ManagerApplicationScreen extends StatelessWidget {
                                                                         child:
                                                                             Row(
                                                                           children: [
-                                                                            Image.asset(
-                                                                              AssetRes.airBnbLogo,
+                                                                            Container(
                                                                               height: 62,
                                                                               width: 62,
+                                                                              decoration: BoxDecoration(
+                                                                                borderRadius: BorderRadius.circular(12),
+                                                                                image: DecorationImage(
+                                                                                    image: NetworkImage(controller.documentData[index]["imageUrl"]),
+                                                                                    fit: BoxFit.cover
+                                                                                ),
+                                                                              ),
                                                                             ),
                                                                             const SizedBox(width: 20),
                                                                             Padding(

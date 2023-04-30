@@ -15,7 +15,7 @@ import 'package:jobseek/utils/pref_keys.dart';
 import 'package:jobseek/utils/string.dart';
 
 Widget recentPeopleBox({bool? homeScreen, String? position}) {
-  final contro = Get.put(ManagerHomeScreenController());
+  final ManagerHomeScreenController contro = Get.put(ManagerHomeScreenController());
   JobDetailsUploadCvController jobDetailsUploadCvController =
       Get.put(JobDetailsUploadCvController());
   jobDetailsUploadCvController.init();
@@ -68,13 +68,6 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                       InkWell(
                         onTap: () => Get.toNamed(AppRes.applicantsDetails,
                             arguments: contro.userData[i]),
-                        //     onTap: () {
-                        //   Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //           builder: (con) =>
-                        //               ChatBoxScreen()));
-                        // },
 
                         child: Container(
                           padding: const EdgeInsets.symmetric(
@@ -99,16 +92,7 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                                           borderRadius:
                                               BorderRadius.circular(10),
                                         ),
-                                        /*  contro.userData[i]['imageUrl'] != ""
-                                            ? Image(
-                                            image: NetworkImage(
-                                                contro.userData[i]
-                                                ['imageUrl']))
-                                            : const Image(
-                                          image: AssetImage(
-                                              AssetRes.detailsImage),
-                                          height: 20,
-                                        ),*/
+
                                         child: (create.url == "")
                                             ? const Image(
                                                 image: AssetImage(
@@ -135,7 +119,7 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            // "${contro.userData[i]['userName']}",
+
                                             "${contro.userData[i]['userName']}",
                                             style: appTextStyle(
                                                 color: ColorRes.black,
@@ -153,7 +137,7 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                                       ),
                                     ],
                                   ),
-                                  Row(
+                                 /* Row(
                                     children: [
                                       InkWell(
                                         onTap: () {
@@ -216,7 +200,7 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                                         ),
                                       ),
                                     ],
-                                  ),
+                                  ),*/
                                 ],
                               ),
                               const SizedBox(

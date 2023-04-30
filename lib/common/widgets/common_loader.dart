@@ -15,8 +15,8 @@ class CommonLoader extends StatelessWidget {
           width: 110,
           decoration: BoxDecoration(
               color: ColorRes.white, borderRadius: BorderRadius.circular(25)),
-          child: const CircularProgressIndicator(
-            backgroundColor: Color(0xffE2D3FE),
+          child:  CircularProgressIndicator(
+            backgroundColor: ColorRes.containerColor.withOpacity(0.2),
             color: ColorRes.containerColor,
           ),
         ),

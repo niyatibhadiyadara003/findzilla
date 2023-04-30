@@ -74,7 +74,7 @@ class ProfileController extends GetxController implements GetxService {
         companyAddressController.text = data["address"];
         dateController.text = data["date"];
         countryController.text = data["country"];
-
+        url = data["imageUrl"];
         image = File(PrefService.getString(PrefKeys.imageManager));
         update();
 

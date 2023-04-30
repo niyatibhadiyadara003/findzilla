@@ -187,7 +187,6 @@ class ProfileUserController extends GetxController implements GetxService {
       init();
       Get.back();
 
-      Get.to(ProfileUserScreenU());
     }
   }
 

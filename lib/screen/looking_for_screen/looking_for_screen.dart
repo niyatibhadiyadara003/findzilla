@@ -14,85 +14,61 @@ class LookingForScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(LookingForYouScreenController());
     return Scaffold(
+      backgroundColor: ColorRes.white,
       resizeToAvoidBottomInset: false,
-      backgroundColor: const Color(0xffF8F8F8),
       body: Column(
         children: [
-          Container(
-            height: Get.height * 0.6,
-            width: Get.width,
-            padding: EdgeInsets.only(
-              left: Get.width * 0.088,
-              right: Get.width * 0.144,
-              top: Get.height * 0.130,
-            ),
-            child: Image.asset(AssetRes.lookingForYou),
+          Spacer(flex: 2,),
+          Image.asset(
+            AssetRes.logoWithName,
+            height: 170,
           ),
-          Expanded(
-            child: Container(
-              width: Get.width,
-              height: Get.height * 0.4,
-              decoration: const BoxDecoration(
-                color: Color(0xffffffff),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(50),
-                  topRight: Radius.circular(50),
+          Spacer(),
+          SizedBox(
+            height: Get.height * 0.06,
+          ),
+
+          Text(
+            Strings.whatAreYouLookingFor,
+            style: appTextStyle(color: ColorRes.black, fontSize: 14),
+          ),
+          SizedBox(
+            height: Get.height * 0.035,
+          ),
+          Padding(
+            padding:
+            EdgeInsets.symmetric(horizontal: Get.width * 0.048),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                InkWell(
+                  onTap: () => controller.onChangeWantJobChoice(),
+                  child: Obx(
+                        () => lookingForYouBox(
+                            AssetRes.wantJob,
+                        "I want job", controller.isJob.value),
+                  ),
                 ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: Get.height * 0.06,
+                InkWell(
+                  onTap: () => controller.onChangeEmployeeChoice(),
+                  child: Obx(
+                        () => lookingForYouBox(
+                        AssetRes.person,
+                        "I want an employee",
+                        controller.isEmployee.value),
                   ),
-                  SizedBox(
-                      height: Get.height * 0.045,
-                      width: Get.height * 0.045,
-                      child: Image.asset(
-                        AssetRes.userIcon,
-                        fit: BoxFit.fill,
-                      )),
-                  SizedBox(
-                    height: Get.height * 0.02,
-                  ),
-                  Text(
-                    Strings.whatAreYouLookingFor,
-                    style: appTextStyle(color: ColorRes.black, fontSize: 14),
-                  ),
-                  SizedBox(
-                    height: Get.height * 0.035,
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: Get.width * 0.048),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        InkWell(
-                          onTap: () => controller.onChangeWantJobChoice(),
-                          child: Obx(
-                            () => lookingForYouBox(AssetRes.wantJob,
-                                "I want job", controller.isJob.value),
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () => controller.onChangeEmployeeChoice(),
-                          child: Obx(
-                            () => lookingForYouBox(
-                                AssetRes.person,
-                                "I want an employee",
-                                controller.isEmployee.value),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
+          SizedBox(
+            height: Get.height * 0.06,
+          ),
+
         ],
       ),
     );
   }
 }
+
+

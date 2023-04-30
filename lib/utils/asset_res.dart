@@ -84,6 +84,8 @@ class AssetRes {
   static const failedImages = "${images}failedImages.png";
   static const unSave = "${images}unSave.png";
 
+  static const logoWithName = "${images}logoWithName.png";
+
   static const HomeLogo = "${images}HomeLogo.png";
   static const Home2 = "${images}Home2.png";
   static const appliesLogo = "${images}appliesLogo.png";

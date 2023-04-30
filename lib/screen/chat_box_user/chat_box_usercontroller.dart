@@ -183,7 +183,7 @@ class ChatBoxUserController extends GetxController implements GetxService {
         .collection(roomId!)
         .doc(docId)
         .update({"read": true});
-    //await setReadInChatDoc(true);
+    await setReadInChatDoc(true);
   }
 
   Future<void> setLastMsgInDoc(String msg) async {
