@@ -6,12 +6,16 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:jobseek/screen/looking_for_screen/looking_for_screen.dart';
 import 'package:jobseek/screen/job_detail_screen/job_detail_upload_cv_screen/upload_cv_controller.dart';
 import 'package:jobseek/screen/manager_section/Appearance/Appearance_controller.dart';
+import 'package:jobseek/screen/manager_section/help/terms/terms_Screen.dart';
+import 'package:jobseek/screen/privacy_policy/privacy_policy.dart';
 import 'package:jobseek/service/pref_services.dart';
 import 'package:jobseek/utils/app_style.dart';
 import 'package:jobseek/utils/asset_res.dart';
 import 'package:jobseek/utils/color_res.dart';
 import 'package:jobseek/utils/pref_keys.dart';
 import 'package:jobseek/utils/string.dart';
+
+import '../help/faq/faq_screen.dart';
 
 // ignore: must_be_immutable
 class SettingScreenM extends StatelessWidget {
@@ -65,129 +69,13 @@ class SettingScreenM extends StatelessWidget {
                 )
               ],
             ),
-            const SizedBox(height: 20),
-            /*  InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (con) => const NotificationScreen()));
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          height: 55,
-                          width: 55,
-                          decoration: BoxDecoration(
-                            color: ColorRes.logoColor,
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: const Icon(
-                            Icons.notifications,
-                            color: ColorRes.containerColor,
-                          ),
-                        ),
-                        const SizedBox(width: 15),
-                        Text(
-                          Strings.notification,
-                          style: appTextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14,
-                              color: ColorRes.black),
-                        ),
-                      ],
-                    ),
-                    const Image(
-                      image: AssetImage(AssetRes.settingaArrow),
-                      height: 15,
-                    ),
-                  ],
-                ),
-              ),
-            ),*/
-            /*   const SizedBox(height: 3),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10),
-              color: ColorRes.lightGrey.withOpacity(0.8),
-              height: 1,
-            ),*/
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Text(
-                    Strings.darkMode,
-                    style: appTextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: ColorRes.black),
-                  ),
-                ),
-                const Spacer(),
-                Obx(
-                  () => FlutterSwitch(
-                    height: 27,
-                    width: 45,
-                    value: controller.isSwitchedDarkMode.value,
-                    activeColor: ColorRes.blueColor,
-                    toggleSize: 20,
-                    onToggle: (value) => controller.onchangeDarkMode(value),
-                  ),
-                ),
-                const SizedBox(width: 15),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10),
-              color: ColorRes.lightGrey.withOpacity(0.8),
-              height: 1,
-            ),
-            const SizedBox(height: 10),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Text(
-                    Strings.localization,
-                    style: appTextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: ColorRes.black),
-                  ),
-                ),
-                const Spacer(),
-                Obx(
-                  () => FlutterSwitch(
-                    height: 27,
-                    width: 45,
-                    value: controller.isSwitchedLocalization.value,
-                    activeColor: ColorRes.blueColor,
-                    toggleSize: 20,
-                    onToggle: (value) => controller.onchangeLocalization(value),
-                  ),
-                ),
-                const SizedBox(width: 15),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10),
-              color: ColorRes.lightGrey.withOpacity(0.8),
-              height: 1,
-            ),
 
-            /* InkWell(
+            const SizedBox(height: 10),
+            const SizedBox(height: 10),
+            InkWell(
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (con) => const AppearanceScreen()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (con) => const TermsScreen()));
               },
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
@@ -210,7 +98,7 @@ class SettingScreenM extends StatelessWidget {
                         ),
                         const SizedBox(width: 15),
                         Text(
-                          Strings.appearance,
+                          "Terms & Conditions",
                           style: appTextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 14,
@@ -221,6 +109,7 @@ class SettingScreenM extends StatelessWidget {
                     const Image(
                       image: AssetImage(AssetRes.settingaArrow),
                       height: 15,
+                      color: ColorRes.containerColor,
                     ),
                   ],
                 ),
@@ -231,12 +120,16 @@ class SettingScreenM extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 10),
               color: ColorRes.lightGrey.withOpacity(0.8),
               height: 1,
-            ),*/
-            /* const SizedBox(height: 10),
+            ),
+            const SizedBox(height: 10),
             InkWell(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (con) => const HelpScreen()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (con) => const PrivacyPolicy(),
+                  ),
+                );
               },
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
@@ -252,18 +145,14 @@ class SettingScreenM extends StatelessWidget {
                             color: ColorRes.logoColor,
                             borderRadius: BorderRadius.circular(15),
                           ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(17.0),
-                            child: Image(
-                              image: AssetImage(AssetRes.settingHelp),
-                              width: 20,
-                              color: ColorRes.containerColor,
-                            ),
+                          child: const Icon(
+                            Icons.language,
+                            color: ColorRes.containerColor,
                           ),
                         ),
                         const SizedBox(width: 15),
                         Text(
-                          Strings.help,
+                          "Privacy policy",
                           style: appTextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 14,
@@ -274,6 +163,7 @@ class SettingScreenM extends StatelessWidget {
                     const Image(
                       image: AssetImage(AssetRes.settingaArrow),
                       height: 15,
+                      color: ColorRes.containerColor,
                     ),
                   ],
                 ),
@@ -284,8 +174,60 @@ class SettingScreenM extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 10),
               color: ColorRes.lightGrey.withOpacity(0.8),
               height: 1,
-            ),*/
+            ),
             const SizedBox(height: 10),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (con) => FaqScreen()));
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          height: 55,
+                          width: 55,
+                          decoration: BoxDecoration(
+                            color: ColorRes.logoColor,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: const Icon(
+                            Icons.visibility,
+                            color: ColorRes.containerColor,
+                          ),
+                        ),
+                        const SizedBox(width: 15),
+                        Text(
+                          "Faqs",
+                          style: appTextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              color: ColorRes.black),
+                        ),
+                      ],
+                    ),
+                    const Image(
+                      image: AssetImage(AssetRes.settingaArrow),
+                      height: 15,
+                      color: ColorRes.containerColor,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 3),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10),
+              color: ColorRes.lightGrey.withOpacity(0.8),
+              height: 1,
+            ),
+            const SizedBox(height: 10),
+
+
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: InkWell(

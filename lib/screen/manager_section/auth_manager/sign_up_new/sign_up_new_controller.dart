@@ -32,6 +32,7 @@ class SignUpControllerM extends GetxController {
   String cityError = "";
   String stateError = "";
   String countryError = "";
+  String country = "Country";
 
   static FirebaseFirestore fireStore = FirebaseFirestore.instance;
 
@@ -222,7 +223,8 @@ class SignUpControllerM extends GetxController {
   changeDropdwon({required String val}) {
     dropDownValue = val;
     countryController.text = dropDownValue;
-
+    country = val;
+    update(["showCountry"]);
     update(["dropdown"]);
     update(["dark"]);
   }

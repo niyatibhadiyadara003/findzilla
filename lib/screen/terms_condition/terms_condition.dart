@@ -37,7 +37,7 @@ class TermsAndServicesScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Text("")
+          Text(""),
         ],
       ),
     );

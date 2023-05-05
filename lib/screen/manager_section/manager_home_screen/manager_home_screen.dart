@@ -80,7 +80,7 @@ class ManagerHomeScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                       fontSize: 16),
                 ),
-                InkWell(
+               /* InkWell(
                   onTap: () {
                     Navigator.push(
                       context,
@@ -96,7 +96,7 @@ class ManagerHomeScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                         fontSize: 14),
                   ),
-                ),
+                ),*/
               ],
             ),
           ),

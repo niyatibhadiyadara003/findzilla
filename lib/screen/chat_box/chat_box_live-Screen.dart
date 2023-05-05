@@ -228,9 +228,9 @@ class ChatBoxLiveScreenM extends StatelessWidget {
                                                     ColorRes.gradientColor,
                                                     ColorRes.containerColor,
                                                   ])
-                                                : const LinearGradient(colors: [
-                                                    Color(0xFFEEEBF4),
-                                                    Color(0xFFEEEBF4),
+                                                :  LinearGradient(colors: [
+                                              ColorRes.containerColor.withOpacity(0.1),
+                                              ColorRes.containerColor.withOpacity(0.1),
                                                   ]),
                                         /* color: data['senderUid']
                                         .toString() ==
@@ -321,6 +321,7 @@ class ChatBoxLiveScreenM extends StatelessWidget {
                               AssetRes.chatSend,
                               height: 25,
                               width: 25,
+                              color: ColorRes.containerColor,
                             ),
                           ),
                         ],

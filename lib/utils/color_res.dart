@@ -7,7 +7,7 @@ class ColorRes {
   static const black2 = Color(0xff343740);
   static const lightBlack = Color(0xff232325);
   static const containerColor = Color(0xff4969eb);
-  static const gradientColor = Color(0xff4969eb);
+  static const gradientColor = Color(0xff8A9EF0);
   static const textColor = Color(0xff97A0AF);
   static Color logoColor = Color(0xff4969eb).withOpacity(0.2);
   static const starColor = Color(0xffDA1414);

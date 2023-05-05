@@ -38,18 +38,9 @@ class SignUpScreen extends StatelessWidget {
                       const SizedBox(height: 50),
                       backButton(),
                       Center(
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 80,
-                          width: 80,
-                          decoration: BoxDecoration(
-                            color: ColorRes.logoColor,
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Image.asset(
-                            AssetRes.small_logo,
-                            scale: 3,
-                          ),
+                        child:Image.asset(
+                          AssetRes.small_logo,
+                          height: 60,
                         ),
                       ),
                       const SizedBox(height: 18),
@@ -430,7 +421,7 @@ class SignUpScreen extends StatelessWidget {
                               child: Material(
                                 shadowColor: ColorRes.containerColor,
                                 borderRadius: BorderRadius.circular(12),
-                                child: Container(
+                                child: /*Container(
                                   height: 50,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12),
@@ -482,8 +473,8 @@ class SignUpScreen extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                ),
-                                /*  commonTextFormField(
+                                ),*/
+                                  commonTextFormField(
                                   controller: controller.countryController,
                                   textDecoration: InputDecoration(
                                     hintText: 'Country',
@@ -568,7 +559,7 @@ class SignUpScreen extends StatelessWidget {
                                             ? errorBorder()
                                             : enableBorder(),
                                   ),
-                                ),*/
+                                ),
                               ),
                             ),
                             controller.countryError == ""
@@ -604,7 +595,7 @@ class SignUpScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      GetBuilder<SignUpController>(
+                    /*  GetBuilder<SignUpController>(
                           id: "remember_me",
                           builder: (controller) {
                             return InkWell(
@@ -634,7 +625,7 @@ class SignUpScreen extends StatelessWidget {
                                 ],
                               ),
                             );
-                          }),
+                          }),*/
                       const SizedBox(height: 25),
                       GetBuilder<SignUpController>(
                           id: "dark",

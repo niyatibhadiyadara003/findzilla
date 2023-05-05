@@ -47,19 +47,11 @@ class _SignInScreenMState extends State<SignInScreenM> {
                     children: [
                       const SizedBox(height: 50),
                       backButton(),
+                      SizedBox(height: Get.height * 0.05),
                       Center(
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 80,
-                          width: 80,
-                          decoration: BoxDecoration(
-                            color: ColorRes.logoColor,
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Image.asset(
-                            AssetRes.small_logo,
-                            scale: 3,
-                          ),
+                        child: Image.asset(
+                          AssetRes.small_logo,
+                        height: 60,
                         ),
                       ),
                       const SizedBox(height: 18),
@@ -354,7 +346,7 @@ class _SignInScreenMState extends State<SignInScreenM> {
                         ),
                       ),
                       const SizedBox(height: 5),
-                      Row(
+                     /* Row(
                         children: [
                           GetBuilder<SignInScreenControllerM>(
                               id: "remember_me",
@@ -392,7 +384,7 @@ class _SignInScreenMState extends State<SignInScreenM> {
                               }),
                         ],
                       ),
-                      const SizedBox(height: 25),
+                      const SizedBox(height: 25),*/
                       GetBuilder<SignInScreenControllerM>(
                           id: "colorChange",
                           builder: (controller) {
@@ -466,93 +458,51 @@ class _SignInScreenMState extends State<SignInScreenM> {
                         ),
                       ),
                       const SizedBox(height: 28),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              controller.faceBookSignIn();
-                            },
-                            child: Container(
-                              height: 50,
-                              width: 145,
-                              decoration: BoxDecoration(
-                                  border:
-                                      Border.all(color: ColorRes.borderColor),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        offset: const Offset(6, 6),
-                                        color: ColorRes.containerColor
-                                            .withOpacity(0.08),
-                                        spreadRadius: 0,
-                                        blurRadius: 35),
-                                  ],
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: ColorRes.white),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  const Image(
-                                    image: AssetImage(
-                                      AssetRes.facebookImage,
-                                    ),
-                                    height: 27,
-                                  ),
-                                  const SizedBox(width: 15),
-                                  Text(Strings.facebook,
-                                      style: appTextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 15,
-                                          color: ColorRes.black))
-                                ],
+                    Align(
+                      alignment: Alignment.center,
+                      child:  InkWell(
+                        onTap: () {
+                          controller.signWithGoogle();
+                        },
+                        child: Container(
+                          height: 50,
+                          width: 145,
+                          decoration: BoxDecoration(
+                              border:
+                              Border.all(color: ColorRes.borderColor),
+                              boxShadow: [
+                                BoxShadow(
+                                    offset: const Offset(6, 6),
+                                    color: ColorRes.containerColor
+                                        .withOpacity(0.08),
+                                    spreadRadius: 0,
+                                    blurRadius: 35),
+                              ],
+                              borderRadius: BorderRadius.circular(10),
+                              color: ColorRes.white),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const Image(
+                                image: AssetImage(
+                                  AssetRes.googleLogo,
+                                ),
+                                height: 27,
                               ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              controller.signWithGoogle();
-                            },
-                            child: Container(
-                              height: 50,
-                              width: 145,
-                              decoration: BoxDecoration(
-                                  border:
-                                      Border.all(color: ColorRes.borderColor),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        offset: const Offset(6, 6),
-                                        color: ColorRes.containerColor
-                                            .withOpacity(0.08),
-                                        spreadRadius: 0,
-                                        blurRadius: 35),
-                                  ],
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: ColorRes.white),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  const Image(
-                                    image: AssetImage(
-                                      AssetRes.googleLogo,
-                                    ),
-                                    height: 27,
-                                  ),
-                                  const SizedBox(width: 15),
-                                  Text(
-                                    Strings.google,
-                                    style: appTextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 15,
-                                        color: ColorRes.black),
-                                  ),
-                                ],
+                              const SizedBox(width: 15),
+                              Text(
+                                Strings.google,
+                                style: appTextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 15,
+                                    color: ColorRes.black),
                               ),
-                            ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
+                    ),
                       const SizedBox(height: 27),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
