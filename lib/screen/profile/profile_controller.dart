@@ -44,7 +44,9 @@ class ProfileUserController extends GetxController implements GetxService {
     occupationController.text = PrefService.getString(PrefKeys.occupation);
     dateOfBirthController.text = PrefService.getString(PrefKeys.dateOfBirth);
     addressController.text = PrefService.getString(PrefKeys.address);
+
     image = File(PrefService.getString(PrefKeys.imageId));
+
     getFbImgUrl();
     super.onInit();
   }
@@ -176,7 +178,10 @@ class ProfileUserController extends GetxController implements GetxService {
         snapshot.docs.forEach((element) async {
           await fireStore.collection("Apply").doc(element.id).update({
             "fullName": fullNameController.text.trim().toString(),
-            "Occupation": occupationController.text.trim().toString()
+            "Occupation": occupationController.text.trim().toString(),
+            "Dob": dateOfBirthController.text,
+            "Address": addressController.text,
+            "imageUrl": url,
           });
         });
       });
@@ -234,7 +239,7 @@ class ProfileUserController extends GetxController implements GetxService {
     XFile? gallery = await picker.pickImage(source: ImageSource.gallery);
     String path = gallery!.path;
     image = File(path);
-
+    uploadImage();
     imagePicker();
     Get.back();
   }

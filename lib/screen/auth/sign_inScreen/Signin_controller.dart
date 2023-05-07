@@ -154,8 +154,8 @@ class SignInScreenController extends GetxController {
             }
 
             if (credential.user!.email.toString() == email) {
-              PrefService.setValue(
-                  PrefKeys.userId, credential.user!.uid.toString());
+              PrefService.setValue(PrefKeys.userId, credential.user!.uid.toString());
+              PrefService.setValue(PrefKeys.isLogin, true);
               Get.off(() => DashBoardScreen());
               emailController.text = "";
               passwordController.text = "";

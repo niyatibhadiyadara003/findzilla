@@ -340,6 +340,8 @@ class SettingsScreenU extends StatelessWidget {
                         }
                         await FirebaseAuth.instance.signOut();
                         /*   PrefService.clear();*/
+                        PrefService.setValue(PrefKeys.isLogin, false);
+                        PrefService.setValue(PrefKeys.register, false);
                         PrefService.setValue(PrefKeys.password, "");
                         PrefService.setValue(PrefKeys.rememberMe, "");
                         PrefService.setValue(PrefKeys.registerToken, "");

@@ -127,7 +127,8 @@ class ProfileController extends GetxController implements GetxService {
       );*/
 
       Map<String, dynamic> map2 = {
-        "CompanyName": companyNameController.text.trim().toString()
+        "CompanyName": companyNameController.text.trim().toString(),
+
       };
       await fireStore
           .collection("Auth")
@@ -145,7 +146,13 @@ class ProfileController extends GetxController implements GetxService {
           .then((QuerySnapshot snapshot) {
         snapshot.docs.forEach((element) async {
           await fireStore.collection("allPost").doc(element.id).update(
-              {"CompanyName": companyNameController.text.trim().toString()});
+              {
+                "CompanyName": companyNameController.text.trim().toString(),
+                "date": dateController.text.trim(),
+                "country": countryController.text.trim(),
+                "address": companyAddressController.text.trim(),
+                "imageUrl": url,
+              });
         });
       });
 

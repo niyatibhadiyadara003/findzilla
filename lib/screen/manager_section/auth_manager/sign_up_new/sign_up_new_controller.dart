@@ -101,6 +101,7 @@ class SignUpControllerM extends GetxController {
             PrefKeys.userId, userCredential.user?.uid.toString());
         PrefService.setValue(PrefKeys.rol, "Manager");
         PrefService.setValue(PrefKeys.totalPost, 0);
+        PrefService.setValue(PrefKeys.register, false);
 
         Map<String, dynamic> map2 = {
           "FullName":

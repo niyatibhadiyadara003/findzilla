@@ -10,6 +10,7 @@ import 'package:jobseek/screen/job_detail_screen/job_detail_screen.dart';
 import 'package:jobseek/screen/job_detail_screen/job_detail_upload_cv_screen/upload_cv_screen.dart';
 import 'package:jobseek/screen/job_detail_screen/job_details_success_or_fails/job_details_success_or_faild_screen.dart';
 import 'package:jobseek/screen/job_recommendation_screen/job_recommendation_screen.dart';
+import 'package:jobseek/screen/looking_for_screen/looking_for_screen.dart';
 import 'package:jobseek/screen/manager_section/Notification/notification_services.dart';
 import 'package:jobseek/screen/manager_section/applicants_detail_screen/applicants_detail_screen.dart';
 import 'package:jobseek/screen/manager_section/auth_manager/first_page/first_screen.dart';
@@ -102,6 +103,9 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: AppRes.seeDetailsScreen,
             page: () =>  SeeDetailsScreen()),
+        GetPage(
+            name: AppRes.lookingForScreen,
+            page: () =>  LookingForScreen()),
         GetPage(
             name: AppRes.updateVacanciesRequirementScreen,
             page: () => UpdateVacanciesRequirementsScreen()),
