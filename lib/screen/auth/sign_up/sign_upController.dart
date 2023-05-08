@@ -214,6 +214,7 @@ class SignUpController extends GetxController {
         PrefService.setValue(
             PrefKeys.userId, userCredential.user?.uid.toString());
         PrefService.setValue(PrefKeys.rol, "User");
+        PrefService.setValue(PrefKeys.register, true);
         Map<String, dynamic> map2 = {
           "fullName": "${firstnameController.text} ${lastnameController.text}",
           "Email": emailController.text,

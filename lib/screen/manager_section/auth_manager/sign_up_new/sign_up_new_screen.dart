@@ -34,18 +34,9 @@ class SignUpScreenM extends StatelessWidget {
                     ),
                     backButton(),
                     Center(
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 80,
-                        width: 80,
-                        decoration: BoxDecoration(
-                          color: ColorRes.logoColor,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Image.asset(
-                          AssetRes.small_logo,
-                          scale: 3,
-                        ),
+                      child: Image.asset(
+                        AssetRes.small_logo,
+                        height: 60,
                       ),
                     ),
                     const SizedBox(height: 18),
@@ -1015,7 +1006,7 @@ class SignUpScreenM extends StatelessWidget {
                             child: Material(
                               shadowColor: ColorRes.containerColor,
                               borderRadius: BorderRadius.circular(12),
-                              child: Container(
+                              child: /*Container(
                                 height: 50,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
@@ -1030,12 +1021,12 @@ class SignUpScreenM extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        "Country",
+                                        controller.country,
                                         style: appTextStyle(
                                             fontSize: 15,
-                                            fontWeight: FontWeight.w500,
-                                            color: ColorRes.black
-                                                .withOpacity(0.15)),
+                                            fontWeight: (controller.country == "Country") ? FontWeight.w500 : FontWeight.bold,
+                                            color: (controller.country == "Country") ? ColorRes.black
+                                                .withOpacity(0.15) : ColorRes.black),
                                       ),
                                       GetBuilder<SignUpControllerM>(
                                         id: "dropdown",
@@ -1059,6 +1050,7 @@ class SignUpScreenM extends StatelessWidget {
                                                 },
                                               ).toList(),
                                               onChanged: (String? val) {
+
                                                 controller.changeDropdwon(
                                                     val: val!);
                                               });
@@ -1067,8 +1059,8 @@ class SignUpScreenM extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                              ),
-                              /* commonTextFormField(
+                              ),*/
+                               commonTextFormField(
                                 onChanged: controller.onChanged,
                                 controller: controller.countryController,
                                 textDecoration: InputDecoration(
@@ -1152,7 +1144,7 @@ class SignUpScreenM extends StatelessWidget {
                                           ? errorBorder()
                                           : enableBorder(),
                                 ),
-                              ),*/
+                              ),
                             ),
                           ),
                           controller.countryError == ""
@@ -1188,7 +1180,7 @@ class SignUpScreenM extends StatelessWidget {
                         ],
                       ),
                     ),
-                    GetBuilder<SignUpControllerM>(
+                   /* GetBuilder<SignUpControllerM>(
                         id: "remember_me",
                         builder: (controller) {
                           return InkWell(
@@ -1217,7 +1209,7 @@ class SignUpScreenM extends StatelessWidget {
                               ],
                             ),
                           );
-                        }),
+                        }),*/
                     const SizedBox(height: 25),
                     GetBuilder<SignUpControllerM>(
                         id: "dark",

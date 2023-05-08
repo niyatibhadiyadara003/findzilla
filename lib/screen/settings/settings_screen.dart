@@ -67,108 +67,8 @@ class SettingsScreenU extends StatelessWidget {
                 )
               ],
             ),
+
             const SizedBox(height: 10),
-            /*  InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (con) => const NotificationScreenU()));
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          height: 55,
-                          width: 55,
-                          decoration: BoxDecoration(
-                            color: ColorRes.logoColor,
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: const Icon(
-                            Icons.notifications,
-                            color: ColorRes.containerColor,
-                          ),
-                        ),
-                        const SizedBox(width: 15),
-                        Text(
-                          Strings.notification,
-                          style: appTextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14,
-                              color: ColorRes.black),
-                        ),
-                      ],
-                    ),
-                    const Image(
-                      image: AssetImage(AssetRes.settingaArrow),
-                      height: 15,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 3),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10),
-              color: ColorRes.lightGrey.withOpacity(0.8),
-              height: 1,
-            ),
-            const SizedBox(height: 10),*/
-            // InkWell(
-            //   onTap: () {
-            //     Navigator.push(
-            //         context,
-            //         MaterialPageRoute(
-            //             builder: (con) => const SecurityScreenU()));
-            //   },
-            //   child: Padding(
-            //     padding: const EdgeInsets.all(12.0),
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //       children: [
-            //         Row(
-            //           children: [
-            //             Container(
-            //               height: 55,
-            //               width: 55,
-            //               decoration: BoxDecoration(
-            //                 color: ColorRes.logoColor,
-            //                 borderRadius: BorderRadius.circular(15),
-            //               ),
-            //               child: const Icon(
-            //                 Icons.lock,
-            //                 color: ColorRes.containerColor,
-            //               ),
-            //             ),
-            //             const SizedBox(width: 15),
-            //             Text(
-            //               Strings.security,
-            //               style: appTextStyle(
-            //                   fontWeight: FontWeight.w500,
-            //                   fontSize: 14,
-            //                   color: ColorRes.black),
-            //             ),
-            //           ],
-            //         ),
-            //         const Image(
-            //           image: AssetImage(AssetRes.settingaArrow),
-            //           height: 15,
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            // const SizedBox(height: 3),
-            // Container(
-            //   margin: const EdgeInsets.symmetric(horizontal: 10),
-            //   color: ColorRes.lightGrey.withOpacity(0.8),
-            //   height: 1,
-            // ),
             const SizedBox(height: 10),
             InkWell(
               onTap: () {
@@ -207,6 +107,7 @@ class SettingsScreenU extends StatelessWidget {
                     const Image(
                       image: AssetImage(AssetRes.settingaArrow),
                       height: 15,
+                      color: ColorRes.containerColor,
                     ),
                   ],
                 ),
@@ -219,7 +120,6 @@ class SettingsScreenU extends StatelessWidget {
               height: 1,
             ),
             const SizedBox(height: 10),
-
             InkWell(
               onTap: () {
                 Navigator.push(
@@ -261,6 +161,7 @@ class SettingsScreenU extends StatelessWidget {
                     const Image(
                       image: AssetImage(AssetRes.settingaArrow),
                       height: 15,
+                      color: ColorRes.containerColor,
                     ),
                   ],
                 ),
@@ -310,6 +211,7 @@ class SettingsScreenU extends StatelessWidget {
                     const Image(
                       image: AssetImage(AssetRes.settingaArrow),
                       height: 15,
+                      color: ColorRes.containerColor,
                     ),
                   ],
                 ),
@@ -321,62 +223,9 @@ class SettingsScreenU extends StatelessWidget {
               color: ColorRes.lightGrey.withOpacity(0.8),
               height: 1,
             ),
-            // const SizedBox(height: 10),
-            /* InkWell(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (con) => const HelpScreenU()));
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          height: 55,
-                          width: 55,
-                          decoration: BoxDecoration(
-                            color: ColorRes.logoColor,
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(17.0),
-                            child: Image(
-                              image: AssetImage(AssetRes.settingHelp),
-                              width: 20,
-                              color: ColorRes.containerColor,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 15),
-                        Text(
-                          Strings.help,
-                          style: appTextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14,
-                              color: ColorRes.black),
-                        ),
-                      ],
-                    ),
-                    const Image(
-                      image: AssetImage(AssetRes.settingaArrow),
-                      height: 15,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 3),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10),
-              color: ColorRes.lightGrey.withOpacity(0.8),
-              height: 1,
-            ),
-            */
-
             const SizedBox(height: 10),
+
+
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: InkWell(
@@ -491,6 +340,8 @@ class SettingsScreenU extends StatelessWidget {
                         }
                         await FirebaseAuth.instance.signOut();
                         /*   PrefService.clear();*/
+                        PrefService.setValue(PrefKeys.isLogin, false);
+                        PrefService.setValue(PrefKeys.register, false);
                         PrefService.setValue(PrefKeys.password, "");
                         PrefService.setValue(PrefKeys.rememberMe, "");
                         PrefService.setValue(PrefKeys.registerToken, "");

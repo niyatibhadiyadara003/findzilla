@@ -76,16 +76,21 @@ class EditProfileUser extends StatelessWidget {
                                     image: controller.fbImageUrl.value != ""
                                         ? DecorationImage(
                                             image: NetworkImage(
-
-                                                controller.fbImageUrl.value),fit: BoxFit.fill)
+                                                controller.fbImageUrl.value),
+                                        fit: BoxFit.cover
+                                    )
                                         : (controller.image != null)
                                             ? DecorationImage(
                                                 image: FileImage(
-                                                    controller.image!),
+                                                    controller.image!,
+
+                                                ),
+                                        fit: BoxFit.cover
                                               )
                                             : const DecorationImage(
                                                 image: AssetImage(
                                                     AssetRes.userprofileLogo),
+                                      fit: BoxFit.cover
                                               ),
                                   ),
                                 );

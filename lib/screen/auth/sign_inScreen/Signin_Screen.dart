@@ -52,7 +52,7 @@ class _SigninScreenUState extends State<SigninScreenU> {
                       children: [
                         const SizedBox(height: 50),
                         backButton(),
-                        // SizedBox(height: Get.height * 0.061),
+                         SizedBox(height: Get.height * 0.05),
                         Center(
                           child: Image.asset(
                             AssetRes.small_logo,
@@ -369,7 +369,7 @@ class _SigninScreenUState extends State<SigninScreenU> {
                           ),
                         ),
                         const SizedBox(height: 5),
-                        Row(
+                      /*  Row(
                           children: [
                             GetBuilder<SignInScreenController>(
                                 id: "remember_me",
@@ -427,34 +427,14 @@ class _SigninScreenUState extends State<SigninScreenU> {
                                   );
                                 }),
                           ],
-                        ),
+                        ),*/
                         SizedBox(height: Get.height * 0.036),
+
                         GetBuilder<SignInScreenController>(
                             id: "colorChange",
                             builder: (controller) {
                               return
-                                  /*(controller.emailController.text == '' ||
-                                      controller.passwordController.text == '')
-                                  ? Container(
-                                      height: 50,
-                                      width: MediaQuery.of(context).size.width,
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        gradient: LinearGradient(colors: [
-                                          ColorRes.gradientColor
-                                              .withOpacity(0.2),
-                                          ColorRes.containerColor
-                                              .withOpacity(0.4)
-                                        ]),
-                                      ),
-                                      child: Text("Sign In",
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w500,
-                                              color: ColorRes.white)),
-                                    )
-                                  :*/
+
                                   InkWell(
                                 onTap: () {
                                   controller.onLoginBtnTap(

@@ -83,7 +83,9 @@ class ManagerApplicationScreen extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          Container(
+
+          /// ------------ search ------------------
+          /*Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             margin: const EdgeInsets.symmetric(horizontal: 20),
             decoration: BoxDecoration(
@@ -110,7 +112,7 @@ class ManagerApplicationScreen extends StatelessWidget {
           ),
           const SizedBox(
             height: 20,
-          ),
+          ),*/
           Container(
             padding: const EdgeInsets.only(left: 20, right: 20),
             height: 32,

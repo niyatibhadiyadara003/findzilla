@@ -12,7 +12,7 @@ import 'package:jobseek/utils/color_res.dart';
 // ignore: must_be_immutable
 class EditProfileScreen extends StatelessWidget {
   EditProfileScreen({Key? key}) : super(key: key);
-  final controller = Get.put(ProfileController());
+  final ProfileController controller = Get.put(ProfileController());
 
   CreateVacanciesController getCreate = Get.put(CreateVacanciesController());
 
@@ -87,7 +87,7 @@ class EditProfileScreen extends StatelessWidget {
                                   height: 90,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                    image: (getCreate.url == "")
+                                    image: (controller.url == "")
                                         ? DecorationImage(
                                             image: const AssetImage(
                                               AssetRes.roundAirbnb,
@@ -98,7 +98,7 @@ class EditProfileScreen extends StatelessWidget {
                                             })
                                         : DecorationImage(
                                             image: NetworkImage(
-                                              getCreate.url,
+                                              controller.url,
                                             ),
                                             fit: BoxFit.fill),
                                   ),
