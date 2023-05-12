@@ -29,19 +29,17 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     getpref();
-
-
-
   }
-  getpref()async{
-  await  PrefService.init();
-  if (PrefService.getList(PrefKeys.allDesignation) == null ||
-      PrefService.getList(PrefKeys.allDesignation).isEmpty ||
-      PrefService.getList(PrefKeys.allCountryData) == null ||
-      PrefService.getList(PrefKeys.allCountryData).isEmpty) {
-    countryApi();
-  }
-  splash();
+
+  getpref() async {
+    await PrefService.init();
+    if (PrefService.getList(PrefKeys.allDesignation) == null ||
+        PrefService.getList(PrefKeys.allDesignation).isEmpty ||
+        PrefService.getList(PrefKeys.allCountryData) == null ||
+        PrefService.getList(PrefKeys.allCountryData).isEmpty) {
+      countryApi();
+    }
+    splash();
   }
 
   void splash() async {
@@ -52,13 +50,14 @@ class _SplashScreenState extends State<SplashScreen> {
       final DashBoardController controller = Get.put(DashBoardController());
       controller.currentTab = 0;
 
-      (PrefService.getBool(PrefKeys.register) || PrefService.getBool(PrefKeys.isLogin))
+      (PrefService.getBool(PrefKeys.register) ||
+              PrefService.getBool(PrefKeys.isLogin))
           ? (rol == "User")
-          ? Get.offAll(()=>DashBoardScreen())
-          :  Get.offAll(()=>ManagerDashBoardScreen())
-          : Get.offAll(()=>LookingForScreen());
+              ? Get.offAll(() => DashBoardScreen())
+              : Get.offAll(() => ManagerDashBoardScreen())
+          : Get.offAll(() => LookingForScreen());
 
-   /*   Get.off(() => token == ""
+      /*   Get.off(() => token == ""
           ? DashBoardScreen()
           : rol == "User"
               ? DashBoardScreen()
@@ -70,7 +69,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ImageProvider backgroundImage = const AssetImage(AssetRes.splash_screenback);
+    ImageProvider backgroundImage =
+        const AssetImage(AssetRes.splash_screenback);
     backgroundImage.resolve(createLocalImageConfiguration(context));
     ImageProvider backgroundImageBoy = const AssetImage(AssetRes.splashBoyImg);
     backgroundImageBoy.resolve(createLocalImageConfiguration(context));
@@ -78,51 +78,81 @@ class _SplashScreenState extends State<SplashScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
             Padding(
               padding: const EdgeInsets.only(right: 20),
               child: Align(
                 alignment: Alignment.topRight,
-                child: Image.asset(AssetRes.small_logo, height: 40,),
+                child: Image.asset(
+                  AssetRes.small_logo,
+                  height: 40,
+                ),
               ),
             ),
-           Align(
-             alignment: Alignment.topLeft,
-             child: Column(
-               crossAxisAlignment: CrossAxisAlignment.start,
-               children: [
-                 const Padding(
-                   padding: EdgeInsets.only(left: 20),
-                   child: Text("Find your", style: TextStyle(fontSize: 50, fontWeight: FontWeight.w500, color: ColorRes.color343740),),
-                 ),
-                 Stack(
-                   alignment: Alignment.centerLeft,
-                   children: [
-                     Container(
-                       height: 50,
-                       width: 230,
-                       color: ColorRes.colorFFF2DA,
-                     ),
-                     const Padding(
-                       padding: EdgeInsets.only(left: 20),
-                       child: Text("dream job", style: TextStyle(fontSize: 50, fontWeight: FontWeight.w500, color: ColorRes.color343740),),
-                     ),
-
-                   ],
-                 ),
-                 const Padding(
-                   padding: EdgeInsets.only(left: 20),
-                   child: Text("here", style: TextStyle(fontSize: 50, fontWeight: FontWeight.w500, color: ColorRes.color343740),),
-                 ),
-               ],
-             ),
-           ),
-            const Spacer(flex: 1,),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Text(
+                      "Find your",
+                      style: TextStyle(
+                          fontSize: 50,
+                          fontWeight: FontWeight.w500,
+                          color: ColorRes.color343740),
+                    ),
+                  ),
+                  Stack(
+                    alignment: Alignment.centerLeft,
+                    children: [
+                      Container(
+                        height: 50,
+                        width: 230,
+                        color: ColorRes.colorFFF2DA,
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Text(
+                          "dream job",
+                          style: TextStyle(
+                              fontSize: 50,
+                              fontWeight: FontWeight.w500,
+                              color: ColorRes.color343740),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Text(
+                      "here",
+                      style: TextStyle(
+                          fontSize: 50,
+                          fontWeight: FontWeight.w500,
+                          color: ColorRes.color343740),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Spacer(
+              flex: 1,
+            ),
             Image.asset(AssetRes.splashImage),
             const Spacer(flex: 2),
             const Align(
               alignment: Alignment.center,
-              child: Text("Findzilla", style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500, color: ColorRes.containerColor),),
+              child: Text(
+                "Findzilla",
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w500,
+                    color: ColorRes.containerColor),
+              ),
             ),
             const SizedBox(height: 30),
           ],

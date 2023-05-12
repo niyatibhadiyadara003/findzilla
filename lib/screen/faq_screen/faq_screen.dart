@@ -67,7 +67,7 @@ class FaqScreen extends StatelessWidget {
                   child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     itemCount:
-                        controller.data == null ? 0 : controller.data!.length,
+                        controller.data == null ? 0 : controller.data.length,
                     shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
@@ -90,7 +90,7 @@ class FaqScreen extends StatelessWidget {
                                 SizedBox(
                                   width: Get.width * 0.64,
                                   child: Text(
-                                    controller.data![index]['title'].toString(),
+                                    controller.data[index]['title'].toString(),
                                     style: const TextStyle(
                                         fontSize: 15, color: ColorRes.black),
                                   ),
