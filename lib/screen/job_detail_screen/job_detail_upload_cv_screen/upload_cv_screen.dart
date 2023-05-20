@@ -56,7 +56,31 @@ class JobDetailsUploadCvScreen extends StatelessWidget {
                             color: ColorRes.white),
                         child: Row(
                           children: [
-                            Image.asset(AssetRes.airBnbLogo),
+                            ( args["doc"]["imageUrl"] == "")
+
+
+                                ? Container(
+                              width: 60,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image:  AssetImage(
+                                          AssetRes.roundAirbnb),
+                                      fit: BoxFit.cover
+                                  )
+                              ),
+                            )
+                                : Container(
+                              width: 60,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image:  NetworkImage(
+                                          args["doc"]["imageUrl"]),
+                                      fit: BoxFit.cover
+                                  )
+                              ),
+                            ),
                             const SizedBox(width: 20),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -158,7 +182,7 @@ class JobDetailsUploadCvScreen extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 10),
                                 decoration: BoxDecoration(
-                                  color: const Color(0xffEEEBF4),
+                                  color:  ColorRes.containerColor.withOpacity(0.1),
                                   borderRadius: const BorderRadius.all(
                                     Radius.circular(15),
                                   ),
