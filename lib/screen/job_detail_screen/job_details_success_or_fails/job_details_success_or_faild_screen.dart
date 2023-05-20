@@ -51,11 +51,33 @@ class JobDetailsSuccessOrFailedScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(15)),
-                            border: Border.all(color: const Color(0xffF3ECFF)),
+                            border: Border.all(color:  ColorRes.borderColor),
                             color: ColorRes.white),
                         child: Row(
                           children: [
-                            Image.asset(AssetRes.airBnbLogo),
+                            ( args[0]['doc']["imageUrl"] == "")
+                                ? Container(
+                              width: 60,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image:  AssetImage(
+                                          AssetRes.roundAirbnb),
+                                      fit: BoxFit.cover
+                                  )
+                              ),
+                            )
+                                : Container(
+                              width: 60,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image:  NetworkImage(
+                                          args[0]['doc']["imageUrl"]),
+                                      fit: BoxFit.cover
+                                  )
+                              ),
+                            ),
                             const SizedBox(width: 20),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -82,7 +104,7 @@ class JobDetailsSuccessOrFailedScreen extends StatelessWidget {
                         margin: const EdgeInsets.only(top: 10),
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         decoration: BoxDecoration(
-                          color: const Color(0xffEEEBF4),
+                          color:  ColorRes.containerColor.withOpacity(0.1),
                           borderRadius:
                               const BorderRadius.all(Radius.circular(15)),
                           border: Border.all(color: ColorRes.borderColor),

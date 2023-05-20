@@ -125,47 +125,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
 
-                  ///listview using obx
-                  /*  SizedBox(
-                    height: 32,
-                    child: Obx(() {
-                      return ListView.builder(
 
-                          itemCount: controller.jobs.length,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          physics: const BouncingScrollPhysics(),
-                          itemBuilder: (context, index) {
-                            return GestureDetector(
-                              onTap: ()=>controller.onTapJobs(index),
-                              child: Container(
-                                margin: const EdgeInsets.only(right: 10),
-                                height: 32,
-                                width: 80,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: ColorRes.containerColor, width: 2),
-                                    borderRadius: const BorderRadius.all(
-                                      Radius.circular(10),
-                                    ),
-                                    color: index == controller.selectedJobs.value
-                                        ? ColorRes.containerColor
-                                        : ColorRes.white),
-                                child: Text(
-                                  controller.jobs[index],
-                                  style: appTextStyle(
-                                      color: index == controller.selectedJobs.value
-                                          ? ColorRes.white
-                                          : ColorRes.containerColor,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ),
-                            );
-                          });
-                    }),
-                  ),*/
 
                   const SizedBox(height: 18),
                   Container(

@@ -19,6 +19,8 @@ class PrefKeys {
   static const emailRememberUser="emailRememberUser";
   static const passwordRememberUser ="passwordRememberUser";
   static const passwordRememberManager ="passwordRememberManager";
+  static const imageUrlM = "imageUrlM";
+  static const imageUrlU = "imageUrlU";
 
   /// User Data
   static const firstName = "firstName";

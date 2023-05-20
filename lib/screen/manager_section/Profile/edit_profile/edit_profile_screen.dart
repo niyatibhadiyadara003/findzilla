@@ -88,19 +88,23 @@ class EditProfileScreen extends StatelessWidget {
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     image: (controller.url == "")
+                                        ? (controller.image == null)
                                         ? DecorationImage(
                                             image: const AssetImage(
                                               AssetRes.roundAirbnb,
                                             ),
-                                            fit: BoxFit.fill,
+                                            fit: BoxFit.cover,
                                             onError: (error, starcase) {
                                               Image.asset(AssetRes.userImage);
-                                            })
-                                        : DecorationImage(
+                                            }) : DecorationImage(
+                                        image: FileImage(controller.image!),
+                                      fit: BoxFit.cover,
+                                    )
+                                        :  DecorationImage(
                                             image: NetworkImage(
                                               controller.url,
                                             ),
-                                            fit: BoxFit.fill),
+                                            fit: BoxFit.cover),
                                   ),
                                 );
                               }),
