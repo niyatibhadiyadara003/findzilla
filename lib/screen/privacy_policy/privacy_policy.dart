@@ -3,6 +3,7 @@ import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:get/get.dart';
 import 'package:jobseek/common/widgets/backButton.dart';
 import 'package:jobseek/utils/color_res.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class PrivacyPolicy extends StatelessWidget {
   const PrivacyPolicy({Key? key}) : super(key: key);
@@ -58,23 +59,7 @@ class PrivacyPolicy extends StatelessWidget {
           SizedBox(
             height: 600,
             width: Get.width,
-            child: PDFView(
-                filePath: "assets/pdf/privacyPolicy.pdf",
-                enableSwipe: true,
-                swipeHorizontal: true,
-                autoSpacing: false,
-                pageFling: true,
-                pageSnap: true,
-                defaultPage: 0,
-                fitPolicy: FitPolicy.BOTH,
-                preventLinkNavigation: false,
-                // if set to true the link is handled in flutter
-                onRender: (pages) {},
-                onError: (error) {},
-                onPageError: (page, error) {},
-                onViewCreated: (PDFViewController pdfViewController) {},
-                onLinkHandler: (String? uri) {},
-                onPageChanged: (int? page, int? total) {}),
+            child: SfPdfViewer.asset("assets/pdf/privacyPolicy.pdf"),
           ),
         ],
       ),
