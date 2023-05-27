@@ -88,6 +88,7 @@ class JobDetailsUploadCvController extends GetxController {
       'country': PrefService.getString(PrefKeys.country),
       'Occupation': PrefService.getString(PrefKeys.occupation),
       'uid': FirebaseAuth.instance.currentUser!.uid,
+      'imageUrl': PrefService.getString(PrefKeys.imageUrlU),
       'resumeUrl': pdfUrl,
       'salary': args['salary'],
       'location': args['location'],
