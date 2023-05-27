@@ -179,7 +179,7 @@ class ApplicantsDetailScreen extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(
+                                  /*const SizedBox(
                                     width: 10,
                                   ),
                                   InkWell(
@@ -208,7 +208,7 @@ class ApplicantsDetailScreen extends StatelessWidget {
                                         ]),
                                       ),
                                     ),
-                                  ),
+                                  ),*/
                                 ],
                               )
                             ],
@@ -505,15 +505,15 @@ void settingModalBottomSheet(
                         ApplicantsDetailsController anscontro =
                             Get.put(ApplicantsDetailsController());
 
-                        SendNotificationModel notification =
-                            SendNotificationModel(
-                                title:
-                                    PrefService.getString(PrefKeys.companyName),
-                                body: anscontro.selectedValue,
-                                fcmTokens: [
-                              args['deviceToken'],
-                            ]);
-                        NotificationService.sendNotification(notification);
+                        // SendNotificationModel notification =
+                        //     SendNotificationModel(
+                        //         title:
+                        //             PrefService.getString(PrefKeys.companyName),
+                        //         body: anscontro.selectedValue,
+                        //         fcmTokens: [
+                        //       args['deviceToken'],
+                        //     ]);
+                        // NotificationService.sendNotification(notification);
 
                         // Get.back();
                         ManagerDashBoardScreenController controller2 =
@@ -535,7 +535,7 @@ void settingModalBottomSheet(
                         args['companyName'].forEach((e) {
                           if (e ==
                               PrefService.getString(PrefKeys.companyName)) {
-                            position = e['position'].toString();
+                            position = args['Occupation'].toString();
 
                             if (kDebugMode) {
                               print(position);

@@ -24,20 +24,9 @@ class ManagerApplicationDetailScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
-                  Container(
+                  Image.asset(
+                    AssetRes.small_logo,
                     height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      color: ColorRes.logoColor,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 11),
-                      child: Image.asset(
-                        AssetRes.small_logo,
-                        scale: 6,
-                      ),
-                    ),
                   ),
                   Container(
                     width: Get.width - 110,
@@ -68,7 +57,8 @@ class ManagerApplicationDetailScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(15),
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(15)),
-                    border: Border.all(color: ColorRes.containerColor.withOpacity(0.1)),
+                    border: Border.all(
+                        color: ColorRes.containerColor.withOpacity(0.1)),
                     color: ColorRes.white),
                 child: Row(
                   children: [

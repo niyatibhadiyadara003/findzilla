@@ -15,7 +15,8 @@ import 'package:jobseek/utils/pref_keys.dart';
 import 'package:jobseek/utils/string.dart';
 
 Widget recentPeopleBox({bool? homeScreen, String? position}) {
-  final ManagerHomeScreenController contro = Get.put(ManagerHomeScreenController());
+  final ManagerHomeScreenController contro =
+      Get.put(ManagerHomeScreenController());
   JobDetailsUploadCvController jobDetailsUploadCvController =
       Get.put(JobDetailsUploadCvController());
   jobDetailsUploadCvController.init();
@@ -38,7 +39,10 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                         PrefService.getString(PrefKeys.companyName)
                             .toString()
                             .toLowerCase() &&
-                    element['position'] == position) {
+                    contro.userData[i]['Occupation']
+                        .toString()
+                        .toLowerCase()
+                        .contains(position.toString().toLowerCase())) {
                   if (kDebugMode) {
                     print(element);
                   }
@@ -68,7 +72,6 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                       InkWell(
                         onTap: () => Get.toNamed(AppRes.applicantsDetails,
                             arguments: contro.userData[i]),
-
                         child: Container(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 14, vertical: 20),
@@ -92,30 +95,33 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                                           borderRadius:
                                               BorderRadius.circular(10),
                                         ),
-
-                                        child: (contro.userData[i]['imageUrl'] == "")
+                                        child: (contro.userData[i]
+                                                    ['imageUrl'] ==
+                                                "")
                                             ? Container(
-                                          width: 60,
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(10),
-                                              image: const DecorationImage(
-                                                  image: AssetImage(
-                                                      AssetRes
-                                                          .roundAirbnb),
-                                                  fit: BoxFit.cover
+                                                width: 60,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                    image: const DecorationImage(
+                                                        image: AssetImage(
+                                                            AssetRes
+                                                                .roundAirbnb),
+                                                        fit: BoxFit.cover)),
                                               )
-                                          ),
-                                        )
                                             : Container(
-                                          width: 60,
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(10),
-                                              image: DecorationImage(
-                                                  image: NetworkImage(contro.userData[i]['imageUrl']),
-                                                  fit: BoxFit.cover
-                                              )
-                                          ),
-                                        ),
+                                                width: 60,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                    image: DecorationImage(
+                                                        image: NetworkImage(
+                                                            contro.userData[i]
+                                                                ['imageUrl']),
+                                                        fit: BoxFit.cover)),
+                                              ),
                                       ),
                                       const SizedBox(
                                         width: 10,
@@ -127,7 +133,6 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-
                                             "${contro.userData[i]['userName']}",
                                             style: appTextStyle(
                                                 color: ColorRes.black,
@@ -145,7 +150,7 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                                       ),
                                     ],
                                   ),
-                                 /* Row(
+                                  /* Row(
                                     children: [
                                       InkWell(
                                         onTap: () {
