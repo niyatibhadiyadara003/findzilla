@@ -102,7 +102,8 @@ class ProfileScreen extends StatelessWidget {
                                                       image: NetworkImage(
                                                         controller.url,
                                                       ),
-                                                      fit: BoxFit.cover),
+                                                      fit: BoxFit.cover
+                                              ),
                                             ),
                                           ),
                                         ],

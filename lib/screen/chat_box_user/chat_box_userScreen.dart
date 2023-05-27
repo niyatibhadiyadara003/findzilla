@@ -156,22 +156,30 @@ Widget allChat() {
                                           color: ColorRes.white),
                                       child: Row(
                                         children: [
-                                          (create.url == "")
-                                              ? const Image(
-                                            image: AssetImage(
-                                                AssetRes
-                                                    .airBnbLogo),
-                                            height: 100,
+                                          (data["imageUrl"] == "")
+                                              ? Container(
+                                            width: 60,
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(10),
+                                              image: const DecorationImage(
+                                                image: AssetImage(
+                                                    AssetRes
+                                                        .roundAirbnb),
+                                                fit: BoxFit.cover
+                                              )
+                                            ),
                                           )
-                                              : Image(
-                                            image: NetworkImage(
-                                                create.url),
-                                            height: 100,
+                                              : Container(
+                                            width: 60,
+                                            decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(10),
+                                                image: DecorationImage(
+                                                    image: NetworkImage(
+                                                        data["imageUrl"]),
+                                                    fit: BoxFit.cover
+                                                )
+                                            ),
                                           ),
-                                          /*
-                                                      Image.asset(
-                                                        AssetRes.airBnbLogo,
-                                                      ),*/
                                           const SizedBox(width: 20),
                                           Column(
                                             mainAxisAlignment:
@@ -385,22 +393,31 @@ Widget allChat() {
                                             color: ColorRes.white),
                                         child: Row(
                                           children: [
-                                            (create.url == "")
-                                                ? const Image(
-                                              image: AssetImage(
-                                                  AssetRes
-                                                      .airBnbLogo),
-                                              height: 100,
+                                            (data["imageUrl"] == "")
+                                                ? Container(
+                                              width: 60,
+                                              decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(10),
+                                                  image: const DecorationImage(
+                                                      image: AssetImage(
+                                                          AssetRes
+                                                              .roundAirbnb),
+                                                      fit: BoxFit.cover
+                                                  )
+                                              ),
                                             )
-                                                : Image(
-                                              image: NetworkImage(
-                                                  create.url),
-                                              height: 100,
+                                                : Container(
+                                              width: 60,
+                                              decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(10),
+                                                  image: DecorationImage(
+                                                      image: NetworkImage(
+                                                          data["imageUrl"]),
+                                                      fit: BoxFit.cover
+                                                  )
+                                              ),
                                             ),
-                                            /*
-                                                      Image.asset(
-                                                        AssetRes.airBnbLogo,
-                                                      ),*/
+
                                             const SizedBox(width: 20),
                                             Column(
                                               mainAxisAlignment:

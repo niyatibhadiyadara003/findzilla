@@ -210,7 +210,34 @@ class JobDetailScreen extends StatelessWidget {
                         color: ColorRes.white),
                     child: Row(
                       children: [
-                        Image.asset(AssetRes.airBnbLogo),
+
+
+                          ( args["saved"]["imageUrl"] == "")
+
+
+                            ? Container(
+                          width: 60,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                  image:  AssetImage(
+                                      AssetRes.roundAirbnb),
+                                  fit: BoxFit.cover
+                              )
+                          ),
+                        )
+                            : Container(
+                          width: 60,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                  image:  NetworkImage(
+                                      args["saved"]["imageUrl"]),
+                                  fit: BoxFit.cover
+                              )
+                          ),
+                        ),
+
                         const SizedBox(width: 20),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,

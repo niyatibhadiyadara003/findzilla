@@ -90,19 +90,14 @@ class ProfileUserScreenU extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       color: ColorRes.black,
                                       borderRadius: BorderRadius.circular(50),
-                                      image: controller.fbImageUrl.value != ""
+                                      image: controller.url != ""
                                           ? DecorationImage(
-                                              image: NetworkImage(
-                                                  controller.fbImageUrl.value),
-                                              fit: BoxFit.fill)
-                                          : (controller.image != null)
-                                              ? DecorationImage(
-                                                  image: FileImage(
-                                                      controller.image!),
-                                                )
+                                              image: NetworkImage(controller.url),
+                                              fit: BoxFit.cover)
                                               : const DecorationImage(
                                                   image: AssetImage(
-                                                      AssetRes.userprofileLogo),
+                                                      AssetRes.roundAirbnb),
+                                        fit: BoxFit.cover
                                                 ),
                                     ),
                                   );

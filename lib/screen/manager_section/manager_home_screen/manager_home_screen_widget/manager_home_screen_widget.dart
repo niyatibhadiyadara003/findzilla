@@ -38,7 +38,7 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                         PrefService.getString(PrefKeys.companyName)
                             .toString()
                             .toLowerCase() &&
-                    element['position'].toString() == position) {
+                    element['position'] == position) {
                   if (kDebugMode) {
                     print(element);
                   }
@@ -93,21 +93,29 @@ Widget recentPeopleBox({bool? homeScreen, String? position}) {
                                               BorderRadius.circular(10),
                                         ),
 
-                                        child: (create.url == "")
-                                            ? const Image(
-                                                image: AssetImage(
-                                                    AssetRes.detailsImage),
-                                                height: 100,
+                                        child: (contro.userData[i]['imageUrl'] == "")
+                                            ? Container(
+                                          width: 60,
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(10),
+                                              image: const DecorationImage(
+                                                  image: AssetImage(
+                                                      AssetRes
+                                                          .roundAirbnb),
+                                                  fit: BoxFit.cover
                                               )
-                                            : Image(
-                                                image: NetworkImage(create.url),
-                                                height: 100,
-                                              ),
-                                        /* child: const Image(
-                                          image:
-                                              AssetImage(AssetRes.detailsImage),
-                                          height: 20,
-                                        ),*/
+                                          ),
+                                        )
+                                            : Container(
+                                          width: 60,
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(10),
+                                              image: DecorationImage(
+                                                  image: NetworkImage(contro.userData[i]['imageUrl']),
+                                                  fit: BoxFit.cover
+                                              )
+                                          ),
+                                        ),
                                       ),
                                       const SizedBox(
                                         width: 10,

@@ -71,8 +71,12 @@ class SignInScreenControllerM extends GetxController {
               for (int j = 0; j < value2.docs.length; j++) {
                 PrefService.setValue(
                     PrefKeys.companyName, value2.docs[j]['name']);
+
+                PrefService.setValue(
+                    PrefKeys.imageUrlM, value2.docs[j]['imageUrl']);
               }
             });
+
 
             //PrefService.setValue(PrefKeys.companyName, value.docs[i].);
 

@@ -87,13 +87,8 @@ Widget allJobs(Stream stream, {bool? seeAll = false}) {
                             ? InkWell(
                                 onTap: () => Get.toNamed(AppRes.jobDetailScreen,
                                     arguments: {
-                                      "saved": jrController.documents[
-                                          jrController.documents.length -
-                                              1 -
-                                              index],
-                                      "docId": jrController.documents.length -
-                                          1 -
-                                          index
+                                      "saved": jrController.documents[jrController.documents.length - 1 - index],
+                                      "docId": jrController.documents.length - 1 - index
                                     }),
                                 child: Container(
                                   height: 92,
@@ -111,18 +106,39 @@ Widget allJobs(Stream stream, {bool? seeAll = false}) {
                                       color: ColorRes.white),
                                   child: Row(
                                     children: [
-                                      (create.url == "")
-                                          ? const Image(
-                                              image: AssetImage(
-                                                  AssetRes.airBnbLogo),
-                                              height: 100,
+                                      ( jrController.documents[
+                                      jrController.documents.length -
+                                          1 -
+                                          index]["imageUrl"] == "")
+
+
+                                          ? Container(
+                                        width: 60,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(10),
+                                          image: DecorationImage(
+                                            image:  AssetImage(
+                                                AssetRes.roundAirbnb),
+                                            fit: BoxFit.cover
+                                          )
+                                        ),
+                                      )
+                                          : Container(
+                                        width: 60,
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(10),
+                                            image: DecorationImage(
+                                                image:  NetworkImage(
+                                                    jrController.documents[
+                                                    jrController.documents.length -
+                                                        1 -
+                                                        index]["imageUrl"]),
+                                                fit: BoxFit.cover
                                             )
-                                          : Image(
-                                              image: NetworkImage(create.url),
-                                              height: 100,
-                                            ),
-                                      /*  Image.asset(
-                                          controller.jobTypesLogo[index % 5]),*/
+                                        ),
+                                      ),
+
+
                                       const SizedBox(width: 20),
                                       Column(
                                         mainAxisAlignment:

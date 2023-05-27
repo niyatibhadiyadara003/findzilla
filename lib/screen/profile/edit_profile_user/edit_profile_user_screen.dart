@@ -73,10 +73,10 @@ class EditProfileUser extends StatelessWidget {
                                   decoration: BoxDecoration(
                                     color: ColorRes.black,
                                     borderRadius: BorderRadius.circular(50),
-                                    image: controller.fbImageUrl.value != ""
+                                    image: controller.url != ""
                                         ? DecorationImage(
                                             image: NetworkImage(
-                                                controller.fbImageUrl.value),
+                                                controller.url),
                                         fit: BoxFit.cover
                                     )
                                         : (controller.image != null)
@@ -89,7 +89,7 @@ class EditProfileUser extends StatelessWidget {
                                               )
                                             : const DecorationImage(
                                                 image: AssetImage(
-                                                    AssetRes.userprofileLogo),
+                                                    AssetRes.roundAirbnb),
                                       fit: BoxFit.cover
                                               ),
                                   ),

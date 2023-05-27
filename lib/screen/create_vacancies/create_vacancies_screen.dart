@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jobseek/common/widgets/common_error_box.dart';
 import 'package:jobseek/common/widgets/common_textField.dart';
+import 'package:jobseek/service/pref_services.dart';
 import 'package:jobseek/utils/app_style.dart';
 import 'package:jobseek/utils/asset_res.dart';
 import 'package:jobseek/utils/color_res.dart';
 import 'package:jobseek/utils/string.dart';
 import 'create_vacancies_controller.dart';
+import 'package:jobseek/utils/pref_keys.dart';
 
 class CreateVacanciesScreenM extends StatelessWidget {
   const CreateVacanciesScreenM({Key? key}) : super(key: key);
@@ -71,15 +73,31 @@ class CreateVacanciesScreenM extends StatelessWidget {
                         children: [
                           Stack(
                             children: [
-                              (controller.url == "")
-                                  ? const Image(
-                                      image: AssetImage(AssetRes.airBnbLogo),
-                                      height: 100,
+
+
+                              (PrefService.getString(PrefKeys.imageUrlM) == "")
+                                  ? Container(
+                                height: 120,
+                                width: 120,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    image: DecorationImage(
+                                        image: AssetImage(AssetRes.roundAirbnb),
+                                        fit: BoxFit.cover
                                     )
-                                  : Image(
-                                      image: NetworkImage(controller.url),
-                                      height: 100,
-                                    ),
+                                ),
+                              )
+                                  : Container(
+                                height: 120,
+                                width: 120,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  image: DecorationImage(
+                                    image: NetworkImage(PrefService.getString(PrefKeys.imageUrlM)),
+                                    fit: BoxFit.cover
+                                  )
+                                ),
+                              )
                             ],
                           ),
                           const SizedBox(height: 18),
