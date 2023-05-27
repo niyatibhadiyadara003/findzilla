@@ -127,8 +127,9 @@ Widget allChat() {
                                           controller.gotoChatScreen(
                                             context,
                                             snapshot.data!.docs[index].id,
-                                            snapshot.data!.docs[index]
-                                                ['userName'],
+                                            snapshot.data!.docs[index]['userName'],
+                                              snapshot.data!.docs[index]['phone'],
+                                            snapshot.data!.docs[index]['imageUrl'],
                                           );
                                         },
                                         child: Container(
@@ -143,7 +144,7 @@ Widget allChat() {
                                                 Radius.circular(15),
                                               ),
                                               border: Border.all(
-                                                color: const Color(0xffF3ECFF),
+                                                color: ColorRes.containerColor.withOpacity(0.1)
                                               ),
                                               color: ColorRes.white),
                                           child: Row(
@@ -339,8 +340,9 @@ Widget allChat() {
                                     controller.gotoChatScreen(
                                       context,
                                       snapshot.data!.docs[index].id,
-                                      snapshot.data!.docs[index]
-                                      ['userName'],
+                                      snapshot.data!.docs[index]['userName'],
+                                        snapshot.data!.docs[index]['phone'],
+                                      snapshot.data!.docs[index]['imageUrl'],
                                     );
                                   },
                                   child: Container(
@@ -354,7 +356,7 @@ Widget allChat() {
                                         const BorderRadius.all(
                                             Radius.circular(15)),
                                         border: Border.all(
-                                          color: const Color(0xffF3ECFF),
+                                          color: ColorRes.containerColor.withOpacity(0.1),
                                         ),
                                         color: ColorRes.white),
                                     child: Row(

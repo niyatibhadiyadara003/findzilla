@@ -343,7 +343,7 @@ class ManagerApplicationScreen extends StatelessWidget {
                                                                           borderRadius: const BorderRadius.all(Radius.circular(
                                                                               15)),
                                                                           border:
-                                                                              Border.all(color: const Color(0xffF3ECFF)),
+                                                                              Border.all(color: ColorRes.containerColor.withOpacity(0.1)),
                                                                           color: ColorRes.white),
                                                                       child:
                                                                           Row(
@@ -491,7 +491,7 @@ class ManagerApplicationScreen extends StatelessWidget {
                                                                               const EdgeInsets.only(left: 15),
                                                                           decoration: BoxDecoration(
                                                                               borderRadius: const BorderRadius.all(Radius.circular(15)),
-                                                                              border: Border.all(color: const Color(0xffF3ECFF)),
+                                                                              border: Border.all(color: ColorRes.containerColor.withOpacity(0.1)),
                                                                               color: ColorRes.white),
                                                                           child:
                                                                               Row(
@@ -627,7 +627,7 @@ class ManagerApplicationScreen extends StatelessWidget {
                                                                         decoration: BoxDecoration(
                                                                             borderRadius:
                                                                                 const BorderRadius.all(Radius.circular(15)),
-                                                                            border: Border.all(color: const Color(0xffF3ECFF)),
+                                                                            border: Border.all(color: ColorRes.containerColor.withOpacity(0.1)),
                                                                             color: ColorRes.white),
                                                                         child:
                                                                             Row(

@@ -135,7 +135,9 @@ Widget allChat() {
                                       controller.gotoChatScreen(
                                           context,
                                           snapshot1.data!.docs[index].id,
-                                          data['name']
+                                          data['name'],
+                                          snapshot1.data!.docs[index]["Phone"],
+                                          data['imageUrl']
                                       );
                                     },
                                     child: Container(
@@ -150,8 +152,7 @@ Widget allChat() {
                                             Radius.circular(15),
                                           ),
                                           border: Border.all(
-                                            color:
-                                            const Color(0xffF3ECFF),
+                                            color: ColorRes.containerColor.withOpacity(0.1),
                                           ),
                                           color: ColorRes.white),
                                       child: Row(
@@ -372,7 +373,9 @@ Widget allChat() {
                                         controller.gotoChatScreen(
                                             context,
                                             snapshot1.data!.docs[index].id,
-                                            data['name']
+                                            data['name'],
+                                            snapshot1.data!.docs[index]["Phone"],
+                                            data['imageUrl']
                                         );
                                       },
                                       child: Container(
@@ -388,7 +391,7 @@ Widget allChat() {
                                             ),
                                             border: Border.all(
                                               color:
-                                              const Color(0xffF3ECFF),
+                                              ColorRes.containerColor.withOpacity(0.1),
                                             ),
                                             color: ColorRes.white),
                                         child: Row(

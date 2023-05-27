@@ -68,7 +68,7 @@ class ManagerApplicationDetailScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(15),
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(15)),
-                    border: Border.all(color: const Color(0xffF3ECFF)),
+                    border: Border.all(color: ColorRes.containerColor.withOpacity(0.1)),
                     color: ColorRes.white),
                 child: Row(
                   children: [

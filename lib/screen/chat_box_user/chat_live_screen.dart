@@ -1,11 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jobseek/screen/call/call_joining_screen.dart';
-import 'package:jobseek/screen/call/video_joinScreen.dart';
-import 'package:jobseek/screen/chat_box/chat_box_controller.dart';
-import 'package:jobseek/screen/manager_section/Notification/notification_services.dart';
-import 'package:jobseek/service/pref_services.dart';
+import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 import 'package:jobseek/utils/app_style.dart';
 import 'package:jobseek/utils/asset_res.dart';
 import 'package:jobseek/utils/color_res.dart';
@@ -20,6 +16,8 @@ class ChatLiveScreen extends StatelessWidget {
   final String? roomId;
   final String? otherUserUid;
   final String? userUid;
+  final String? phone;
+  final String? imageUrl;
 
 
   ChatLiveScreen({
@@ -28,6 +26,8 @@ class ChatLiveScreen extends StatelessWidget {
     this.roomId,
     this.otherUserUid,
     this.userUid,
+    this.phone,
+    this.imageUrl
 
   }) : super(key: key);
 
@@ -101,7 +101,7 @@ class ChatLiveScreen extends StatelessWidget {
                         Radius.circular(15),
                       ),
                       border: Border.all(
-                        color: const Color(0xffF3ECFF),
+                        color: ColorRes.containerColor.withOpacity(0.1),
                       ),
                       color: ColorRes.white),
                   child: Row(
@@ -109,9 +109,30 @@ class ChatLiveScreen extends StatelessWidget {
                       Expanded(
                         child: Row(
                           children: [
-                            Image.asset(
-                              AssetRes.airBnbLogo,
+                            (imageUrl==null)
+                                ? Container(
+                              width: 60,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: const DecorationImage(
+                                      image: AssetImage(
+                                          AssetRes
+                                              .roundAirbnb),
+                                      fit: BoxFit.cover
+                                  )
+                              ),
+                            )
+                                : Container(
+                              width: 60,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image: NetworkImage(imageUrl!),
+                                      fit: BoxFit.cover
+                                  )
+                              ),
                             ),
+
                             const SizedBox(width: 20),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -140,6 +161,8 @@ class ChatLiveScreen extends StatelessWidget {
 
                       InkWell(
                         onTap: () {
+
+                          UrlLauncher.launch('tel: $phone');
                           /*Navigator.push(
                             context,
                             MaterialPageRoute(

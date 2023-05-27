@@ -156,7 +156,7 @@ class EditProfileScreen extends StatelessWidget {
                                                 decoration: BoxDecoration(
                                                   border: Border.all(
                                                     color:
-                                                        const Color(0xffF3ECFF),
+                                                        ColorRes.containerColor.withOpacity(0.1),
                                                   ),
                                                   borderRadius:
                                                       const BorderRadius.all(
@@ -215,7 +215,7 @@ class EditProfileScreen extends StatelessWidget {
                                                 decoration: BoxDecoration(
                                                   border: Border.all(
                                                     color:
-                                                        const Color(0xffF3ECFF),
+                                                        ColorRes.containerColor.withOpacity(0.1),
                                                   ),
                                                   borderRadius:
                                                       const BorderRadius.all(

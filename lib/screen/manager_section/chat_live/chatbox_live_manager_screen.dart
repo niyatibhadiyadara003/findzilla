@@ -53,7 +53,7 @@ class ChatBovLiveScreen extends StatelessWidget {
                       Radius.circular(15),
                     ),
                     border: Border.all(
-                      color: const Color(0xffF3ECFF),
+                      color: ColorRes.containerColor.withOpacity(0.1),
                     ),
                     color: ColorRes.white),
                 child: Row(
