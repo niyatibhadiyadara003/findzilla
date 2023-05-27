@@ -12,8 +12,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 
 class SeeDetailsScreen extends StatelessWidget {
-   SeeDetailsScreen({Key? key}) : super(key: key);
-
+  SeeDetailsScreen({Key? key}) : super(key: key);
 
   final SeeDetailsController controller = Get.put(SeeDetailsController());
 
@@ -48,13 +47,17 @@ class SeeDetailsScreen extends StatelessWidget {
                     width: 100,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(100),
-                      image: const DecorationImage(
-                        image: AssetImage(AssetRes.detailsImage),
-                      ),
+                      image: (args['imageUrl'] != null)
+                          ? DecorationImage(
+                              image: NetworkImage(args['imageUrl']),
+                              fit: BoxFit.cover)
+                          : DecorationImage(
+                              image: AssetImage(AssetRes.roundAirbnb),
+                              fit: BoxFit.cover),
                     ),
                   ),
                   const SizedBox(width: 12),
-                 /* Container(
+                  /* Container(
                     height: 60,
                     width: Get.width - 152,
                     margin: const EdgeInsets.only(top: 10),
