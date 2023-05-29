@@ -75,7 +75,7 @@ dependencies:
   flutter_switch: ^0.3.2
   url_launcher: ^6.1.5
   internet_file: ^1.2.0
-  flutter_pdfview: ^1.0.1
+  flutter_pdfview: 1.2.9
 
   advanced_search: ^2.2.3
   firebase_messaging: ^11.4.4
